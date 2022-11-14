@@ -1,10 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+# Seeds for database
+#   - Users
+#   - Fields
+
+puts "--- [ Users ] ---"
 
 puts "- Removing all users!"
 User.destroy_all
@@ -18,3 +16,26 @@ User.destroy_all
 end
 
 puts " - Added #{User.count} users"
+
+puts "--- [ Users Done ] ---"
+
+puts "#####"
+
+puts "--- [ Fields ] ---"
+puts "- Removing all fields!"
+Field.destroy_all
+
+15.times do
+  field_owner = User.where("landowner = 'true'").sample
+  Field.create!(name: Faker::Movies::StarWars.planet,
+              size: rand(50..1500),
+              location: Faker::Address.full_address,
+              price: rand(1500..50000),
+              user_id: field_owner.id)
+end
+
+puts " - Added #{Field.count} fields"
+
+puts "--- [ Fields Done ] ---"
+
+puts "#####"
