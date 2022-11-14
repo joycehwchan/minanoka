@@ -2,4 +2,12 @@
 
   <h1>Fields#index</h1>
 
+  <h3>There are <%= pluralize(@fields.count, 'field') %></h3>
+
+  <div class="row">
+    <% @fields.each do |field| %>
+      <%= render 'fields/card', field: field %>
+    <% end %>
+  </div>
+
 </div>
