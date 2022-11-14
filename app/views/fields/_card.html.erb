@@ -1,3 +1,15 @@
-<div class="col-12 col-md-6 col-lg-4 card-field">
-  <%= link_to field.name, field_path(field)  %>
+<div class="col-12 col-md-6 col-lg-4">
+  <div class="card-field">
+    <%= image_tag "https://images.unsplash.com/photo-1663908428751-1ee8bfc3e39c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" %>
+    <div class="card-field-infos">
+      <div class="flex-column">
+        <div class="d-flex justify-content-between mb-2">
+          <h2><%= field.name %></h2>
+          <h2 class="card-field-pricing">¥ <%= field.price %></h2>
+        </div>
+        <p><%= field.description %></p>
+      </div>
+    </div>
+    <%= link_to '', field_path(field), class: 'card-link'  %>
+  </div>
 </div>
