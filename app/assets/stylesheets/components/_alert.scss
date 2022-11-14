@@ -1,6 +1,4 @@
-.alert {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
+.alert-width {
+  max-width: 640px;
   z-index: 1000;
 }
