@@ -1,12 +1,13 @@
-.navbar-lewagon {
+.navbar-minanoka {
   justify-content: space-between;
-  background: white;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-minanoka .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-minanoka .navbar-brand img {
   width: 40px;
 }
