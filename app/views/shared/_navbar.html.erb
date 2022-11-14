@@ -10,6 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto gap-3">
         <li class="nav-item active">
+          <%# 👇 Delete after completing design system %>
           <%= link_to "Design Test", pages_design_path, class: "nav-link float-start" %>
         </li>
         <li class="nav-item active">
@@ -18,9 +19,6 @@
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "My bookings", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Another link", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -31,7 +29,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link", class: "btn btn-primary" %>
           </li>
         <% end %>
       </ul>
