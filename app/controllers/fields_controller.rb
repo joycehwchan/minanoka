@@ -1,4 +1,7 @@
 class FieldsController < ApplicationController
+  def index
+    @fields = Field.all
+  end
 
   def show
     @field = Field.find(params[:id])
@@ -18,7 +21,6 @@ class FieldsController < ApplicationController
   end
 
   private
-
 
   def field_params
     params.require(:field).permit(:name, :size, :description, :location, :price)
