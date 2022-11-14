@@ -1,7 +1,8 @@
-<div class="navbar navbar-expand-sm sticky-top navbar-minanoka px-3">
+<div class="navbar navbar-expand-sm sticky-top navbar-minanoka shadow-sm px-3">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to root_path, class: "navbar-brand navbar-logo" do %>
+      <%#= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <i class="fa-solid fa-wheat-awn"></i> MinaNoka
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,7 +15,7 @@
           <%= link_to "Design Test", pages_design_path, class: "nav-link float-start" %>
         </li>
         <li class="nav-item active">
-          <%= link_to "Browse fields", "#", class: "nav-link float-start" %>
+          <%= link_to "Browse fields", fields_path , class: "nav-link float-start" %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item active">

@@ -1,7 +1,6 @@
 .navbar-minanoka {
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px);
+  background: $light-gray;
 }
 
 .navbar-minanoka .navbar-collapse {
@@ -10,4 +9,9 @@
 
 .navbar-minanoka .navbar-brand img {
   width: 40px;
+}
+
+.navbar-logo {
+  color: $green;
+  font-size: 1.6rem;
 }
