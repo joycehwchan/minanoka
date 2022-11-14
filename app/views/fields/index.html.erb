@@ -1,13 +1,15 @@
 <div class="container mt-5">
-
+  <div>
+    <%= form_tag(fields_path, method: :get) do  %>
+      <%= text_field_tag(:search,  params[:search], class: "class") %>
+      <%= submit_tag "search", class: "class" %>
+    <% end %>
+  </div>
   <h1>Fields#index</h1>
-
   <h3>There are <%= pluralize(@fields.count, 'field') %></h3>
-
   <div class="row gy-3">
     <% @fields.each do |field| %>
       <%= render 'fields/card', field: field %>
     <% end %>
   </div>
-
 </div>
