@@ -11,8 +11,7 @@ class Field < ApplicationRecord
     if filter[:column_name].present?
       case filter[:column_name].downcase
       when "price"
-        Field.where('price < ?', filter[:search_value].to_i)
-
+        Field.where('price < ?', filter[:search_value])
       when "location"
         Field.where('location ILIKE ?', "%#{filter[:search_value]}%")
       when "size"
