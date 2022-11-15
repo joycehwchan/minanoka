@@ -31,25 +31,15 @@ User.create!(email: "pear@farmer.com", password: "AwesomePassword!123", name: "F
 puts " - Added #{User.count} users"
 
 puts "--- [ Users Done ] ---"
-
 puts "#####"
-
 puts "--- [ Fields ] ---"
-puts "- Removing all fields!"
+puts " - Removing all fields!"
 Field.destroy_all
-
-def seed_field_img_set
-
-end
-
-def seed_field_img_attach
-
-end
 
 def field_count
   puts "... have added #{Field.count} fields. Plz wait! "
 end
-5.times do
+2.times do
   field_owner = User.where("landowner = 'true'").sample
   unspash_img = "https://source.unsplash.com/640x360?field"
   img_1 = URI.parse(unspash_img).open
@@ -57,17 +47,16 @@ end
   img_3 = URI.parse(unspash_img).open
   img_4 = URI.parse(unspash_img).open
   img_5 = URI.parse(unspash_img).open
+  field_images = [img_1, img_2, img_3, img_4, img_5]
   field = Field.new(name: Faker::Movies::StarWars.planet,
                     size: rand(50..1500),
                     description: Faker::Lorem.paragraph_by_chars,
                     location: Faker::Address.full_address,
                     price: rand(1500..5000),
                     user_id: field_owner.id)
-  field.images.attach(io: img_1, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-  field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-  field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-  field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-  field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+  field_images.each do |image|
+    field.images.attach(io: image, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+  end
   field.featured_img = field.images.first.key
   field.save
   field_count
@@ -76,138 +65,34 @@ end
 ## Creating fields for the test farmers
 puts " - Creating the extra fields for test farmers now..."
 
-unspash_img = "https://source.unsplash.com/640x360?field"
-img_1 = URI.parse(unspash_img).open
-img_2 = URI.parse(unspash_img).open
-img_3 = URI.parse(unspash_img).open
-img_4 = URI.parse(unspash_img).open
-img_5 = URI.parse(unspash_img).open
-field = Field.new(name: Faker::Movies::StarWars.planet,
-                  size: rand(50..1500),
-                  description: Faker::Lorem.paragraph_by_chars,
-                  location: Faker::Address.full_address,
-                  price: rand(1500..5000),
-                  user_id: User.find_by(landowner: 'apple@farmer.com').id)
-field.images.attach(io: img_1, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images.first.key
-field.save
-field_count
-
-unspash_img = "https://source.unsplash.com/640x360?field"
-img_1 = URI.parse(unspash_img).open
-img_2 = URI.parse(unspash_img).open
-img_3 = URI.parse(unspash_img).open
-img_4 = URI.parse(unspash_img).open
-img_5 = URI.parse(unspash_img).open
-field = Field.new(name: Faker::Movies::StarWars.planet,
-                  size: rand(50..1500),
-                  description: Faker::Lorem.paragraph_by_chars,
-                  location: Faker::Address.full_address,
-                  price: rand(1500..5000),
-                  user_id: User.find_by(landowner: 'apple@farmer.com').id)
-field.images.attach(io: img_1, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images.first.key
-field.save
-field_count
-
-unspash_img = "https://source.unsplash.com/640x360?field"
-img_1 = URI.parse(unspash_img).open
-img_2 = URI.parse(unspash_img).open
-img_3 = URI.parse(unspash_img).open
-img_4 = URI.parse(unspash_img).open
-img_5 = URI.parse(unspash_img).open
-field = Field.new(name: Faker::Movies::StarWars.planet,
-                  size: rand(50..1500),
-                  description: Faker::Lorem.paragraph_by_chars,
-                  location: Faker::Address.full_address,
-                  price: rand(1500..5000),
-                  user_id: User.find_by(landowner: 'orange@farmer.com').id)
-field.images.attach(io: img_1, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images.first.key
-field.save
-field_count
-
-unspash_img = "https://source.unsplash.com/640x360?field"
-img_1 = URI.parse(unspash_img).open
-img_2 = URI.parse(unspash_img).open
-img_3 = URI.parse(unspash_img).open
-img_4 = URI.parse(unspash_img).open
-img_5 = URI.parse(unspash_img).open
-field = Field.new(name: Faker::Movies::StarWars.planet,
-                  size: rand(50..1500),
-                  description: Faker::Lorem.paragraph_by_chars,
-                  location: Faker::Address.full_address,
-                  price: rand(1500..5000),
-                  user_id: User.find_by(landowner: 'orange@farmer.com').id)
-field.images.attach(io: img_1, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images.first.key
-field.save
-field_count
-
-unspash_img = "https://source.unsplash.com/640x360?field"
-img_1 = URI.parse(unspash_img).open
-img_2 = URI.parse(unspash_img).open
-img_3 = URI.parse(unspash_img).open
-img_4 = URI.parse(unspash_img).open
-img_5 = URI.parse(unspash_img).open
-field = Field.new(name: Faker::Movies::StarWars.planet,
-                  size: rand(50..1500),
-                  description: Faker::Lorem.paragraph_by_chars,
-                  location: Faker::Address.full_address,
-                  price: rand(1500..5000),
-                  user_id: User.find_by(landowner: 'pear@farmer.com').id)
-field.images.attach(io: img_1, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images.first.key
-field.save
-field_count
-
-unspash_img = "https://source.unsplash.com/640x360?field"
-img_1 = URI.parse(unspash_img).open
-img_2 = URI.parse(unspash_img).open
-img_3 = URI.parse(unspash_img).open
-img_4 = URI.parse(unspash_img).open
-img_5 = URI.parse(unspash_img).open
-field = Field.new(name: Faker::Movies::StarWars.planet,
-                  size: rand(50..1500),
-                  description: Faker::Lorem.paragraph_by_chars,
-                  location: Faker::Address.full_address,
-                  price: rand(1500..5000),
-                  user_id: User.find_by(landowner: 'pear@farmer.com').id)
-field.images.attach(io: img_1, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images.first.key
-field.save
+test_farmers = ["apple@farmer.com", "orange@farmer.com", "pear@farmer.com"]
+2.times do
+  test_farmers.each do |farmer|
+    unspash_img = "https://source.unsplash.com/640x360?field"
+    img_1 = URI.parse(unspash_img).open
+    img_2 = URI.parse(unspash_img).open
+    img_3 = URI.parse(unspash_img).open
+    img_4 = URI.parse(unspash_img).open
+    img_5 = URI.parse(unspash_img).open
+    field_images = [img_1, img_2, img_3, img_4, img_5]
+    field = Field.new(name: Faker::Movies::StarWars.planet,
+                      size: rand(50..1500),
+                      description: Faker::Lorem.paragraph_by_chars,
+                      location: Faker::Address.full_address,
+                      price: rand(1500..5000),
+                      user_id: User.find_by(landowner: farmer).id)
+    field_images.each do |image|
+      field.images.attach(io: image, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+    end
+    field.featured_img = field.images.first.key
+    field.save
+    field_count
+  end
+end
 
 puts " - Added #{Field.count} fields!"
-
 puts "--- [ Fields Done ] ---"
-
-
 puts "--- [ Bookings ] ---"
-
 puts " - Removing all bookings!"
 Booking.destroy_all
 

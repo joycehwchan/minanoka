@@ -1,7 +1,6 @@
-<div class="navbar navbar-expand-sm sticky-top navbar-minanoka shadow-sm px-3">
+<div class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top navbar-minanoka shadow-sm px-3">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand navbar-logo" do %>
-      <%#= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to root_path, class: "navbar-brand navbar-logo text-white" do %>
       <i class="fa-solid fa-wheat-awn"></i> MinaNoka
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,10 +8,6 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto gap-3">
-        <li class="nav-item active">
-          <%# 👇 Delete after completing design system %>
-          <%= link_to "Design Test", pages_design_path, class: "nav-link float-start" %>
-        </li>
         <li class="nav-item active">
           <%= link_to "Browse fields", fields_path, class: "nav-link float-start" %>
         </li>
@@ -29,7 +24,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link", class: "btn btn-primary" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link", class: "btn btn-light" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up",  new_user_registration_path, class: "nav-link", class: "btn btn-primary" %>
           </li>
         <% end %>
       </ul>
