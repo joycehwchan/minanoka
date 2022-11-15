@@ -1,7 +1,8 @@
 <div class="container mt-5">
   <div>
     <%= form_tag(fields_path, method: :get) do  %>
-      <%= text_field_tag(:search,  params[:search], class: "class") %>
+      <%= text_field_tag(:column_name,  params[:column_name], class: "class") %>
+      <%= text_field_tag(:search_value,  params[:search_value], class: "class") %>
       <%= submit_tag "search", class: "class" %>
     <% end %>
   </div>
