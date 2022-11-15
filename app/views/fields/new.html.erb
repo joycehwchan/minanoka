@@ -1,5 +1,13 @@
 <div class="container mt-5">
-
   <h1>Fields#new</h1>
-
+  <div>
+    <%= simple_form_for @field do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :location %>
+      <%= f.input :size %>
+      <%= f.input :price %>
+      <%= f.button :submit, class: "btn btn-success" %>
+    <% end %>
+  </div>
 </div>
