@@ -23,7 +23,7 @@ class Booking < ApplicationRecord
   end
 
   def price
-    field.price_per_day * (date_to - date_from).to_i
+    field.price * (date_to - date_from).to_i
   end
 
   def days
