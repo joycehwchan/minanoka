@@ -19,9 +19,9 @@
 }
 
 .top-section-image {
-clip-path: circle(50%);
-padding: 64px;
-padding-right: 90px;
+  clip-path: circle(50%);
+  padding: 64px;
+  padding-right: 90px;
 }
 
 .container-1 {
@@ -38,7 +38,7 @@ padding-right: 90px;
   margin-top: 15px;
 }
 
-.cards {
+.cards-home {
   display: flex;
   justify-content: space-evenly;
   margin-left: 85px;
@@ -49,14 +49,14 @@ padding-right: 90px;
   border-radius: 50%;
 }
 
-.card {
+.card-home {
   border-radius: 50%;
 }
 
-h2 {
-  text-align: left;
-  margin-top: 24px;
-}
+// h2 {
+//   text-align: left;
+//   margin-top: 24px;
+// }
 
 .home-footer {
   padding-left: 200px;
