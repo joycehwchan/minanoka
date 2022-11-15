@@ -6,18 +6,18 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
-    @booking = Booking.new(bookings_params)
-    @field = Field.find(params[:field_id])
-    @booking.field = @field
-    @booking.price_per_day = 10_000
-    @booking.user = current_user
-    authorize @booking
-    if @booking.save!
-      redirect_to bookings_path
-    else
-      render "bookings/from", status: :unprocessable_entity
-    end
+    # raise
+    # @booking = Booking.new(bookings_params)
+    # @field = Field.find(params[:field_id])
+    # @booking.field = @field
+    # @booking.price_per_day = 10_000
+    # @booking.user = current_user
+    # authorize @booking
+    # if @booking.save!
+    #   redirect_to bookings_path
+    # else
+    #   render "bookings/from", status: :unprocessable_entity
+    # end
   end
 
   private
