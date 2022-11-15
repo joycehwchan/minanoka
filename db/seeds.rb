@@ -68,7 +68,7 @@ end
   field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
   field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
   field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-  field.featured_img = field.images
+  field.featured_img = field.images.first.key
   field.save
   field_count
 end
@@ -93,7 +93,7 @@ field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_t
 field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images[0]
+field.featured_img = field.images.first.key
 field.save
 field_count
 
@@ -114,7 +114,7 @@ field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_t
 field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images[0]
+field.featured_img = field.images.first.key
 field.save
 field_count
 
@@ -135,7 +135,7 @@ field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_t
 field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images[0]
+field.featured_img = field.images.first.key
 field.save
 field_count
 
@@ -156,7 +156,7 @@ field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_t
 field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images[0]
+field.featured_img = field.images.first.key
 field.save
 field_count
 
@@ -177,7 +177,7 @@ field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_t
 field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images[0]
+field.featured_img = field.images.first.key
 field.save
 field_count
 
@@ -198,7 +198,7 @@ field.images.attach(io: img_2, filename: "#{rand(0..9999)}-field.png", content_t
 field.images.attach(io: img_3, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_4, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
 field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-field.featured_img = field.images[0]
+field.featured_img = field.images.first.key
 field.save
 
 puts " - Added #{Field.count} fields!"
