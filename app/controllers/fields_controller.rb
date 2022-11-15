@@ -5,6 +5,7 @@ class FieldsController < ApplicationController
   end
 
   def show
+    @bookings = Bookings.new
     @field = Field.find(params[:id])
     authorize @field
   end
@@ -27,6 +28,6 @@ class FieldsController < ApplicationController
   private
 
   def field_params
-    params.require(:field).permit(:name, :size, :description, :location, :price, :featured_img, images: [] )
+    params.require(:field).permit(:name, :size, :description, :location, :price, :featured_img, images: [])
   end
 end
