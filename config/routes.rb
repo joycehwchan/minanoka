@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   get 'pages/design', to: 'pages#design' # delete after setting up design system
 
   root to: "pages#home"
-  resources :fields do
-    resources :bookings, only: %i{:new, :create}
-    resources :reviews, only: %i{:new, :reate, :edit, :update}
+
+  resources :fields, %i{:index, :show, :new, :create} do
+    resources :bookings, only: %i{:create}
+    resources :reviews, only: %i{:create}
   end
-  resources :landowner do
-    resources :bookings, only: %i{:edit, :update, :index, :show}
+  namespace :landowner do
+    resources :bookings, only: %i{:index}
   end
-  resources :bookings, only: %i{:destroy}
-  resources :reviews, only: %i{:destroy}
+  resources :bookings, only: %i{:index, :update}
 end
