@@ -6,6 +6,8 @@ class Field < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   validates :location, presence: true
+  validates :featured_img, presence: true
+  has_many_attached :images
 
   def self.search(filter)
     if filter[:column_name].present?

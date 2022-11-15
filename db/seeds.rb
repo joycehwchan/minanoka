@@ -204,5 +204,3 @@ field.save
 puts " - Added #{Field.count} fields!"
 
 puts "--- [ Fields Done ] ---"
-
-
