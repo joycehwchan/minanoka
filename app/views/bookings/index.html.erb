@@ -1,6 +1,6 @@
 <div class="container my-5 booking-container">
   <h1>Welcome back, <%= current_user.name %>!</h1>
-  <h3>You have <%= @bookings.count %> bookings</h3>
+  <h3>You have <%= pluralize(@bookings.count, 'booking') %>. </h3>
   <div class="accordion mt-5" id="accordionExample">
     <% @bookings.each do |booking| %>
       <div class="accordion-item">
@@ -20,7 +20,9 @@
                 <p><strong>Renting start: </strong> <%= booking.date_from %></p>
                 <p><strong>Renting ends: </strong> <%= booking.date_to %></p>
                 <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
-                <%= link_to  'Cancel booking', '#', class:"btn btn-outline-secondary booking-btn" %>
+                <% if booking.status != 'rejected' %>
+                  <%= link_to  'Cancel booking', '#', class:"btn btn-outline-secondary booking-btn" %>
+                <% end %>
               </div>
             </div>
           </div>

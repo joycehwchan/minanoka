@@ -18,6 +18,12 @@
             <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" >
               Book now!
             </button>
+          <% else %>
+            <%= link_to  new_user_session_path do %>
+              <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" >
+                Book now!
+              </button>
+            <% end %>
           <% end %>
         <% end %>
       </div>
@@ -30,17 +36,17 @@
       <p><strong>Price:</strong> ¥ <%= number_to_currency(@field.price, unit: "", precision: 0) %> per day</p>
     </div>
   </div>
-</div>
-<!-- Booking form modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Booking request</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= render 'bookings/form' %>
+  <!-- Booking form modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Booking request</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= render 'bookings/form', field: @field, booking: @booking %>
+        </div>
       </div>
     </div>
   </div>
