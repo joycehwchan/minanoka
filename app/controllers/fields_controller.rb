@@ -5,7 +5,7 @@ class FieldsController < ApplicationController
   end
 
   def show
-    @bookings = Bookings.new
+    @booking = Booking.new
     @field = Field.find(params[:id])
     authorize @field
   end
