@@ -1,15 +1,15 @@
-<div class="col-12 col-md-6 col-lg-4">
-  <div class="card-field">
-    <%= image_tag "https://images.unsplash.com/photo-1663908428751-1ee8bfc3e39c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" %>
-    <div class="card-field-infos">
-      <div class="flex-column">
-        <div class="d-flex justify-content-between mb-2">
-          <h2><%= field.name %></h2>
-          <h2 class="card-field-pricing">¥ <%= field.price %></h2>
-        </div>
-        <p><%= field.description %></p>
+<div class="col-12 col-md-6">
+  <div class="card text-white card-has-bg click-col" style="background-image:url('https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');">
+    <%# <img class="card-img d-none" src="https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt=<%= field.name %> > %>
+    <div class="card-img-overlay d-flex flex-column">
+      <div class="card-body">
+        <h3 class="card-title mt-0 text-white"><%= field.name %></h3>
+        <small><i class="fa-solid fa-location-dot"></i> <%= field.location %></small>
+      </div>
+      <div class="card-footer">
+        <h3 class="text-white">¥ <%= number_to_currency(field.price, unit: "", precision: 0) %></h3>
+        <%= link_to '', field_path(field), class: 'card-link'  %>
       </div>
     </div>
-    <%= link_to '', field_path(field), class: 'card-link'  %>
   </div>
 </div>
