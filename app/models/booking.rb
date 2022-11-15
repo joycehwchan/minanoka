@@ -5,5 +5,5 @@ class Booking < ApplicationRecord
   validates :date_to, presence: true
   validates :date_from, presence: true
   validates :price_per_day, presence: true
-  validates :user_id, presence: true, uniquenesse: { scope: :field_id }
+  validates :user_id, presence: true
 end
