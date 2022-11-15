@@ -3,9 +3,25 @@
   padding-right: 200px;
 }
 
+.main-container-1 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.main-container-1 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.home-footer {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
 .top-section-image {
-border-radius: 50px;
+clip-path: circle(50%);
 padding: 64px;
+padding-right: 90px;
 }
 
 .container-1 {
@@ -13,8 +29,13 @@ padding: 64px;
 }
 
 .header-section-2 {
-  margin-left: 24px;
-  margin-right: 24px;
+  margin-left: 195px;
+  margin-right: 90px;
+  margin-bottom: 16px;
+}
+
+.seemore {
+  margin-top: 15px;
 }
 
 .cards {
@@ -33,5 +54,17 @@ padding: 64px;
 }
 
 h2 {
-  text-align: center;
+  text-align: left;
+  margin-top: 24px;
+}
+
+.home-footer {
+  padding-left: 200px;
+  padding-right: 76px;
+}
+
+.footer-image {
+  object-fit: cover;
+  width: 830px;
+  height: 155px;
 }
