@@ -1,6 +1,7 @@
 class FieldsController < ApplicationController
   def index
-    @fields = Field.all
+    @fields = Field.search(params)
+    
   end
 
   def show
