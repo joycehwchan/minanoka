@@ -5,7 +5,7 @@
   <div id="carouselField" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <% first_img = true %>
-      <%= @field.images.each do |image| %>
+      <% @field.images.each do |image| %>
         <% if first_img == true  %>
           <div class="carousel-item active">
         <% else %>
