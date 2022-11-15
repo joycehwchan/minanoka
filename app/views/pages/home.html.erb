@@ -1,2 +1,43 @@
-<h1>Hello!</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+  <div class="d-flex">
+    <div class="d-flex flex-column align-items-start justify-content-center item-left">
+      <h1>Welcome to MinaNoka!</h1>
+      <p>Lorem ipsum dolor sit amet consectetur. Quis lacus faucibus
+      convallis sociis facilisi faucibus fermentum. Eu nullam hac orci
+      neque mi.</p>
+    </div>
+    <div class="d-flex">
+      <%= image_tag "rice_field.jpg", alt: "Farming", width: 200, class:"top-section-image" %>
+    </div>
+  </div>
+
+  <div class="flexbox-main-container-2">
+    <div class="d-flex justify-content-between header-section-2">
+      <div class="flexbox-item1">
+        <h2>Most popular fields</h2>
+      </div>
+      <div class="flexbox-item-2">
+        <p><%= link_to "see more", fields_path %></p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <%= image_tag "rice_field.jpg", alt: "Farming", width: 200 %>
+      </div>
+      <div class="card">
+        <%= image_tag "rice_field.jpg", alt: "Farming", width: 200 %>
+      </div>
+      <div class="card">
+        <%= image_tag "rice_field.jpg", alt: "Farming", width: 200 %>
+      </div>
+    </div>
+  <div>
+    <h2>What is MinaNoka?</h2>
+    <div class="image">
+      <img src="rice_field.jpg" alt="Italian Trulli">
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur. Nec fringilla<br>
+    quis velit. Posuere velit lorem dis nulla risus viverra. Diam urna<br>
+    eleifend arcu at vel phasellus. Scelerisque nisl ornare quam amet diam<br>
+    tortor mauris. Amet euismod amet lacus nunc adipiscing. Sit pellentesque<br>
+    scelerisque fringilla fames sit ullamcorper. Consectetur tel</p>
+  </div>
