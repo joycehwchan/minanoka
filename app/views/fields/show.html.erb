@@ -35,7 +35,7 @@
             <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Book now!
             </button>
-          <% else  %>
+          <% else %>
             <%= link_to  new_user_session_path do %>
               <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" >
                 Book now!
@@ -62,7 +62,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <%= render 'bookings/form' %>
+          <%= render 'bookings/form', field: @field, booking: @booking %>
         </div>
       </div>
     </div>
