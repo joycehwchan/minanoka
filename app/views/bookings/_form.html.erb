@@ -1,1 +1,8 @@
-<p>bookings/_form.html.erb</p>
+<div>
+  <%= simple_form_for [@field,@booking] do |f| %>
+    <%= f.input :date_from %>
+    <%= f.input :date_to %>
+    <%# <%= f.hidden_field :user_id, current_user.id %> 
+    <%= f.button :submit, class: "btn btn-success" %>
+  <% end %>
+</div>

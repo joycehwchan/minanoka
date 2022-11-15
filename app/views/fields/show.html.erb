@@ -8,54 +8,62 @@
       <% @field.images.each do |image| %>
         <% if first_img == true  %>
           <div class="carousel-item active">
-        <% else %>
-          <div class="carousel-item">
-        <% end %>
+          <% else %>
+            <div class="carousel-item">
+            <% end %>
             <img src="<%= cl_image_path(image.key) %>" class="d-block w-100" alt="...">
           </div>
-        <% first_img = false %>
-      <% end %>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselField" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselField" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  <div class="my-4">
-    <div class="row mb-4">
-      <div class="col-12 col-md-6">
-        <h1 class="m-0"><%= @field.name %></h1>
+          <% first_img = false %>
+        <% end %>
       </div>
-      <div class="col-12 col-md-6">
-        <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Book now!
-        </button>
-      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselField" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselField" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <h3><%= @field.location %></h3>
-    <p class="field-description"><%= @field.description %></p>
-    <div class="field-info mt-5">
-      <h2>About this field</h2>
-      <p><strong>Size:</strong> <%= @field.size %> m2</p>
-      <p><strong>Price:</strong> ¥ <%= number_to_currency(@field.price, unit: "", precision: 0) %> per day</p>
-    </div>
-  </div>
-</div>
-<!-- Booking form modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Booking request</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="my-4">
+      <div class="row mb-4">
+        <div class="col-12 col-md-6">
+          <h1 class="m-0"><%= @field.name %></h1>
+        </div>
+        <div class="col-12 col-md-6">
+          <% if user_signed_in? %>
+            <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Book now!
+            </button>
+          <% else  %>
+            <%= link_to  new_user_session_path do %>
+              <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" >
+                Book now!
+              </button>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-      <div class="modal-body">
-        <%= render 'bookings/form' %>
+      <h3><%= @field.location %></h3>
+      <p class="field-description"><%= @field.description %></p>
+      <div class="field-info mt-5">
+        <h2>About this field</h2>
+        <p><strong>Size:</strong> <%= @field.size %> m2</p>
+        <p><strong>Price:</strong> ¥ <%= number_to_currency(@field.price, unit: "", precision: 0) %> per day</p>
       </div>
     </div>
   </div>
-</div>
+  <!-- Booking form modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Booking request</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= render 'bookings/form' %>
+        </div>
+      </div>
+    </div>
+  </div>
