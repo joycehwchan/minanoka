@@ -204,3 +204,29 @@ field.save
 puts " - Added #{Field.count} fields!"
 
 puts "--- [ Fields Done ] ---"
+
+
+puts "--- [ Bookings ] ---"
+
+puts " - Removing all bookings!"
+Booking.destroy_all
+
+date_from_setter = Date.today;
+date_to_setter = date_from_setter + rand(7..30)
+
+5.times do
+  field_setter = Field.all.sample
+  booking = Booking.new(date_from: date_from_setter,
+                        date_to: date_to_setter,
+                        price_per_day: field_setter.price,
+                        status: ["pending", "confirmed", "rejected"].sample,
+                        user: User.where("landowner = false").sample,
+                        field: Field.all.sample)
+  booking.save
+  date_from_setter += 31
+  date_to_setter = date_from_setter + rand(7..30)
+  puts " - Created booking #{booking.date_from} to #{booking.date_to}"
+  puts " - There are #{Booking.count} booking(s) created..."
+end
+puts "################"
+puts "All seeds done!"
