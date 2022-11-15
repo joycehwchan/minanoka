@@ -217,11 +217,11 @@ date_to_setter = date_from_setter + rand(7..30)
 5.times do
   field_setter = Field.all.sample
   booking = Booking.new(date_from: date_from_setter,
-                      date_to: date_to_setter,
-                      price_per_day: field_setter.price,
-                      status: ["pending", "confirmed", "rejected"].sample,
-                      user_id: User.where("landowner = false").sample,
-                      field_id: Field.all.sample)
+                        date_to: date_to_setter,
+                        price_per_day: field_setter.price,
+                        status: ["pending", "confirmed", "rejected"].sample,
+                        user: User.where("landowner = false").sample,
+                        field: Field.all.sample)
   booking.save
   date_from_setter += 31
   date_to_setter = date_from_setter + rand(7..30)
