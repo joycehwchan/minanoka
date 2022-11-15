@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  # before_action :authenticate_user!, :create
+  before_action :authenticate_user!, :create
 
   def index
     @bookings = policy_scope(Booking)
@@ -7,23 +7,22 @@ class BookingsController < ApplicationController
 
   def create
     raise
-    redirect_to new_user_registration_url unless user_signed_in?
-    @booking = Booking.new(params)
+    @booking = Booking.new(bookings_params)
     @field = Field.find(params[:field_id])
     @booking.field = @field
+    @booking.price_per_day = 10_000
     @booking.user = current_user
     authorize @booking
-
-    if @booking.save
-      redirect_to root_path
+    if @booking.save!
+      redirect_to bookings_path
     else
-      render "fields/show", status: :unprocessable_entity
+      render "bookings/from", status: :unprocessable_entity
     end
   end
 
   private
 
-  def booking_params
-    params.require(:booking).permit(:date_from, :date_to, :price_per_day, :user_id, :field_id, :status)
+  def bookings_params
+    params.require(:booking).permit(:date_from, :date_to, :user_id, :field_id, :price_per_day, :status)
   end
 end

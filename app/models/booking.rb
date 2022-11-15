@@ -12,10 +12,10 @@ class Booking < ApplicationRecord
   validates :price_per_day, presence: true
   validates :user_id, presence: true
 
-  enum :status, %i[pending accepted rejected], default: :pending
+  enum :status, ["pending", "confirmed", "rejected"], default: :pending
 
   def date_from_cannot_be_in_the_past
-    errors.add(:start_from, "Can't be in the past") if start_from.present? && start_from < Date.today
+    errors.add(:date_from, "Can't be in the past") if date_from.present? && date_from < Date.today
   end
 
   def date_to_cannot_be_in_the_past
@@ -23,7 +23,7 @@ class Booking < ApplicationRecord
   end
 
   def price
-    offer.price * (date_to - date_from).to_i
+    field.price_per_day * (date_to - date_from).to_i
   end
 
   def days
