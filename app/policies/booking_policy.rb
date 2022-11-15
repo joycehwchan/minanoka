@@ -5,4 +5,8 @@ class BookingPolicy < ApplicationPolicy
       user.bookings
     end
   end
+
+  def create?
+    true
+  end
 end

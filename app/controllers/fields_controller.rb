@@ -6,6 +6,7 @@ class FieldsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @booking.user = current_user
     @field = Field.find(params[:id])
     authorize @field
   end
