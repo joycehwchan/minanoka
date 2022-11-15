@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i{:create}
   end
   namespace :landowner do
-    resources :bookings, only: %i{:index}
+    resources :bookings, only: :index
   end
   resources :bookings, only: %i{:index, :update}
 end
