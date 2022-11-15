@@ -5,4 +5,13 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :fields
+  resources :fields do
+    resources :bookings, only: %i{:new, :create}
+    resources :reviews, only: %i{:new, :reate, :edit, :update}
+  end
+  resources :landowner do
+    resources :bookings, only: %i{:edit, :update, :index, :show}
+  end
+  resources :bookings, only: %i{:destroy}
+  resources :reviews, only: %i{:destroy}
 end

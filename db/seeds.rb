@@ -68,8 +68,8 @@ Field.destroy_all
               user_id: field_owner.id)
 end
 
-
 ## Creating fields for the test farmers
+
 Field.create!(name: Faker::Movies::StarWars.planet,
   size: rand(50..1500),
   description: Faker::Lorem.paragraph_by_chars,
