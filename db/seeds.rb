@@ -68,6 +68,8 @@ Field.destroy_all
               user_id: field_owner.id)
 end
 
+## Creating fields for the test farmers
+
 Field.create!(name: Faker::Movies::StarWars.planet,
   size: rand(50..1500),
   description: Faker::Lorem.paragraph_by_chars,
@@ -109,7 +111,6 @@ Field.create!(name: Faker::Movies::StarWars.planet,
   location: Faker::Address.full_address,
   price: rand(1500..50000),
   user_id: User.find_by(landowner: 'pear@farmer.com').id)
-
 
 puts " - Added #{Field.count} fields"
 
