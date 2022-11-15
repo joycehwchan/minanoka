@@ -4,15 +4,17 @@
   <br>
   <div id="carouselField" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1623310075052-80c6b1790081?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1652017259328-54c2f8043c07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="...">
-      </div>
+      <% first_img = true %>
+      <% @field.images.each do |image| %>
+        <% if first_img == true  %>
+          <div class="carousel-item active">
+        <% else %>
+          <div class="carousel-item">
+        <% end %>
+            <img src="<%= cl_image_path(image.key) %>" class="d-block w-100" alt="...">
+          </div>
+        <% first_img = false %>
+      <% end %>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselField" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
