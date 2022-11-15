@@ -201,7 +201,6 @@ field.images.attach(io: img_5, filename: "#{rand(0..9999)}-field.png", content_t
 field.featured_img = field.images[0]
 field.save
 
-
 puts " - Added #{Field.count} fields!"
 
 puts "--- [ Fields Done ] ---"
