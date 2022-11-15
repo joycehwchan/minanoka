@@ -1,4 +1,31 @@
-<div class="container my-5">
+<div class="container my-5 booking-container">
   <h1>Welcome back, <%= current_user.name %>!</h1>
   <h3>You have <%= @bookings.count %> bookings</h3>
+  <div class="accordion mt-5" id="accordionExample">
+    <% @bookings.each do |booking| %>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <%= booking.field.name %> (Status: <%= booking.status %>)
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="booking-content">
+              <div class="booking-field-img"
+                 style="background-image:url(<%= booking.field.featured_img? ? cl_image_path(booking.field.featured_img) : image_url('https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80') %>);">
+              </div>
+              <div class="booking-info flex-grow-1">
+                <p><strong>Price per night: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
+                <p><strong>Renting start: </strong> <%= booking.date_from %></p>
+                <p><strong>Renting ends: </strong> <%= booking.date_to %></p>
+                <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
+                <%= link_to  'Cancel booking', '#', class:"btn btn-outline-secondary booking-btn" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

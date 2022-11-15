@@ -1,0 +1,35 @@
+.booking-container {
+  max-width: 1000px;
+}
+
+.booking-field-img {
+  background-position: center;
+  background-size: cover;
+  width: 24rem;
+  min-height: 240px;
+  border-radius: 4px;
+
+  @media (max-width: 770px) {
+    width: 100%;
+    max-height: 80px;
+  }
+}
+
+.booking-content {
+  gap: 1rem;
+  display: flex;
+
+  p {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 770px) {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .booking-btn {
+    min-width: 100%;
+  }
+}
