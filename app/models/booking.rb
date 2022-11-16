@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
   validates :date_to, presence: true
   validate :date_to_cannot_be_in_the_past, on: :create
 
-  validate :not_overlapping
+  # validate :not_overlapping
   validates :user_id, presence: true
 
   validate :booking_duration
