@@ -7,11 +7,19 @@
         <h1 class="m-0"><%= @field.name %></h1>
       </div>
       <div class="col-12 col-md-6">
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user == @field.user%>
+          <!-- Edit and Remove btn for field owner -->
+          <div class="float-end">
+            <%= link_to 'Edit field', '#', class: "btn btn-primary btn px-4 text-nowrap" %>
+            <%= link_to 'Remove field', '#', class: "btn btn-danger btn px-4 text-nowrap" %>
+          </div>
+        <% elsif user_signed_in? %>
+          <!-- Booking form for logged in users -->
           <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Book now!
           </button>
         <% else %>
+          <!-- Sign-in page for visitors -->
           <%= link_to "Book now!", new_user_session_path, class:"btn btn-primary btn-lg px-5 text-nowrap float-end" %>
         <% end %>
       </div>
