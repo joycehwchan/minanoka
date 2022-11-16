@@ -1,4 +1,4 @@
-<div class="card card-booking">
+<div class="card card-booking mb-3">
   <div class="card-header">
     Status: <%= booking.status ? booking.status : "--" %>
   </div>
@@ -14,9 +14,12 @@
           <p><strong>Renting start: </strong> <%= booking.date_from %></p>
           <p><strong>Renting ends: </strong> <%= booking.date_to %></p>
           <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
-          <% if booking.status != 'rejected' %>
-            <%= link_to  'Cancel booking', '#', class:"btn btn-outline-secondary booking-btn" %>
-          <% end %>
+          <div class="btn-group-booking flex-sm-column">
+            <% if booking.status != 'rejected' %>
+              <%= link_to  'Cancel booking', '#', class:"btn btn-outline-secondary booking-btn" %>
+            <% end %>
+            <%= link_to  'See field', field_path(booking.field), class:"btn btn-primary booking-btn px-4" %>
+          </div>
         </div>
       </div>
     </p>
