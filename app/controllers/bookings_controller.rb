@@ -1,6 +1,4 @@
 class BookingsController < ApplicationController
- 
-
   def index
     @bookings = policy_scope(Booking)
   end
@@ -11,10 +9,11 @@ class BookingsController < ApplicationController
     @booking.field = @field
     @booking.user = current_user
     authorize @booking
-    if @booking.save!
+    if @booking.save
       redirect_to bookings_path
     else
-      render "bookings/from", status: :unprocessable_entity
+      flash[:alert] = @booking.errors.full_messages.first
+      render 'fields/show', status: :unprocessable_entity
     end
   end
 
