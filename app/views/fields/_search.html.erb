@@ -1,0 +1,11 @@
+<%= form_tag(fields_path, method: :get) do  %>
+  <div class="d-md-flex filter-form">
+    <div class="d-md-flex flex-grow-1 justify-content-center mx-auto gx-2">
+      <%= select_tag(:column_name, options_for_select(["location","price", "size"], params[:column_name] ), class:"form-select filter-input") %>
+      <%= text_field_tag(:search_value,  params[:search_value], class: "form-control filter-input", placeholder: "Search fields") %>
+    </div>
+    <div class="d-flex">
+      <%= submit_tag "search", class: "btn btn-secondary filter-btn flex-grow-1 flex-md-grow-0" %>
+    </div>
+  </div>
+<% end %>
