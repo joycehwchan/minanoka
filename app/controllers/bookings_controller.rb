@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking).reverse
   end
 
   def create
@@ -15,6 +15,13 @@ class BookingsController < ApplicationController
       flash[:alert] = @booking.errors.full_messages.first
       render 'fields/show', status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    authorize @booking
+    redirect_to bookings_path, status: :see_other
   end
 
   private
