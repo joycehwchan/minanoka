@@ -28,8 +28,10 @@
   }
 }
 
-@media (max-width: 400px) {
-  .booking-btn {
+.booking-btn {
+  margin-bottom: 8px;
+
+  @media (max-width: 400px) {
     min-width: 100%;
   }
 }
