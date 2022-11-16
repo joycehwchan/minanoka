@@ -10,16 +10,30 @@
                  style="background-image:url(<%= booking.field.featured_img? ? cl_image_path(booking.field.featured_img) : image_url('https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80') %>);">
         </div>
         <div class="booking-info flex-grow-1">
-          <p><strong>Price per night: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
-          <p><strong>Renting start: </strong> <%= booking.date_from %></p>
-          <p><strong>Renting ends: </strong> <%= booking.date_to %></p>
-          <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
-          <div class="btn-group-booking flex-sm-column">
-            <% if booking.status != 'rejected' %>
-              <%= link_to  'Cancel booking', '#', class:"btn btn-outline-secondary booking-btn" %>
-            <% end %>
-            <%= link_to  'See field', field_path(booking.field), class:"btn btn-primary booking-btn px-4" %>
-          </div>
+          <% if current_user.landowner %>
+            <p><strong>Request from: </strong> <%= booking.user.name %></p>
+            <p><strong>Price per night: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
+            <p><strong>Renting start: </strong> <%= booking.date_from %></p>
+            <p><strong>Renting ends: </strong> <%= booking.date_to %></p>
+            <div class="btn-group-booking flex-sm-column">
+              <% if booking.status != 'rejected' %>
+                <%= link_to  'Confirm booking', '#', class:"btn btn-primary booking-btn" %>
+                <%= link_to  'Reject booking', '#', class:"btn btn-outline-danger booking-btn" %>
+              <% end %>
+              <%#= link_to  'See field', field_path(booking.field), class:"btn btn-secondary booking-btn px-4" %>
+            </div>
+          <% else %>
+            <p><strong>Price per night: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
+            <p><strong>Renting start: </strong> <%= booking.date_from %></p>
+            <p><strong>Renting ends: </strong> <%= booking.date_to %></p>
+            <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
+            <div class="btn-group-booking flex-sm-column">
+              <% if booking.status != 'rejected' %>
+                <%= link_to  'Cancel booking', '#', class:"btn btn-outline-secondary booking-btn" %>
+              <% end %>
+              <%= link_to  'See field', field_path(booking.field), class:"btn btn-primary booking-btn px-4" %>
+            </div>
+          <% end %>
         </div>
       </div>
     </p>
