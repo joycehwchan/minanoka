@@ -7,17 +7,9 @@
         <h1 class="m-0"><%= @field.name %></h1>
       </div>
       <div class="col-12 col-md-6">
-        <% if user_signed_in? %>
-          <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Book now!
-          </button>
-        <% else  %>
-          <%= link_to  new_user_session_path do %>
-            <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" >
-              Book now!
-            </button>
-          <% end %>
-        <% end %>
+        <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Book now!
+        </button>
       </div>
     </div>
     <h3><%= @field.location %></h3>

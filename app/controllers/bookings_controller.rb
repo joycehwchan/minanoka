@@ -1,16 +1,14 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!, :create
+ 
 
   def index
     @bookings = policy_scope(Booking)
   end
 
   def create
-    raise
     @booking = Booking.new(bookings_params)
     @field = Field.find(params[:field_id])
     @booking.field = @field
-    @booking.price_per_day = 10_000
     @booking.user = current_user
     authorize @booking
     if @booking.save!
