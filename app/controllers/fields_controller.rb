@@ -2,6 +2,14 @@ class FieldsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
     @fields = policy_scope(Field.search(params))
+
+    # Not working properly yet...
+    # @fields = @fields.geocoded.map do |flat|
+    #   {
+    #     lat: flat.latitude,
+    #     lng: flat.longitude
+    #   }
+    # end
   end
 
   def show
