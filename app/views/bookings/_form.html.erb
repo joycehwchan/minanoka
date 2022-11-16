@@ -1,4 +1,4 @@
-<%= simple_form_for [@field, @booking] do |f| %>
+<%= simple_form_for [@field, @booking], data: {turbo: false} do |f| %>
   <%= f.input :date_from %>
   <%= f.input :date_to %>
   <hr>

@@ -11,7 +11,7 @@ class Booking < ApplicationRecord
   validate :not_overlapping
   validates :user_id, presence: true
 
-  enum :status, %i[pending confirmed rejected], default: :pending
+  enum status: { pending: "pending", confirmed: "confirmed", rejected: "rejected" }, _default: :pending
 
   def date_from_cannot_be_in_the_past
     errors.add(:date_from, "Can't be in the past") if date_from.present? && date_from < Date.today
