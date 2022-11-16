@@ -15,7 +15,7 @@
           <p><strong>Renting ends: </strong> <%= booking.date_to %></p>
           <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
           <% if booking.status != 'rejected' %>
-            <%= link_to  'Cancel booking', '#', class:"btn btn-outline-secondary booking-btn" %>
+            <%= link_to 'Cancel booking', booking_path(booking), data: { turbo_method: 'delete', turbo_confirm: "Delete ?" }, class:"btn btn-outline-secondary booking-btn"  %>
           <% end %>
         </div>
       </div>
