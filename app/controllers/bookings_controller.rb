@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
     @field = Field.find(params[:field_id])
     @booking.field = @field
     @booking.user = current_user
+    @booking.price_per_day = @field.price
     authorize @booking
     if @booking.save
       redirect_to bookings_path
