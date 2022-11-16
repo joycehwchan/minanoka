@@ -19,9 +19,12 @@ class FieldsController < ApplicationController
   def create
     @field = Field.new(fields_params)
     @field.user = current_user
+
     @field.featured_img = @field.images.first.key
     authorize @field
     if @field.save
+      current_user.landowner = true
+      current_user.save
       redirect_to fields_path(@field)
     else
       render :new, status: :unprocessable_entity
