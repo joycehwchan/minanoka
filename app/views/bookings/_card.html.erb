@@ -1,0 +1,24 @@
+<div class="card card-booking">
+  <div class="card-header">
+    Status: <%= booking.status ? booking.status : "--" %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= booking.field.name %></h5>
+    <p class="card-text">
+      <div class="booking-content">
+        <div class="booking-field-img"
+                 style="background-image:url(<%= booking.field.featured_img? ? cl_image_path(booking.field.featured_img) : image_url('https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80') %>);">
+        </div>
+        <div class="booking-info flex-grow-1">
+          <p><strong>Price per night: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
+          <p><strong>Renting start: </strong> <%= booking.date_from %></p>
+          <p><strong>Renting ends: </strong> <%= booking.date_to %></p>
+          <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
+          <% if booking.status != 'rejected' %>
+            <%= link_to  'Cancel booking', '#', class:"btn btn-outline-secondary booking-btn" %>
+          <% end %>
+        </div>
+      </div>
+    </p>
+  </div>
+</div>
