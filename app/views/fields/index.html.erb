@@ -1,13 +1,16 @@
-<div class="container my-5">
-  <div class="filter shadow-sm mb-4">
-    <%= render "search" %>
-  </div>
-  <h3>There are <%= pluralize(@fields.count, 'field') %></h3>
-  <div class="row mt-2 gy-3">
-    <% @fields.each do |field| %>
-      <div class="col-12 col-md-6">
-        <%= render 'fields/card', field: field %>
+<div class="container-cards-and-map">
+  <div class="cards-field-container">
+    <div class="filter shadow-sm mb-4">
+      <%= render "search" %>
+    </div>
+    <div class="px-3">
+      <h3>There are <%= pluralize(@fields.count, 'field') %></h3>
+      <div class="cards-field">
+        <% @fields.each do |field| %>
+          <%= render 'fields/card', field: field %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
+  <img id="map" src='https://github.com/lewagon/fullstack-images/blob/master/frontend/map-static.png?raw=true'>
 </div>

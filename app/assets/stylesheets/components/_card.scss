@@ -1,15 +1,51 @@
+.cards-field {
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 8px 0;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 880px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 550px) {
+    grid-template-columns: 1fr;
+  }
+}
 .card-field {
   position: relative;
   border: none;
   transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
   overflow: hidden;
   border-radius: 8px;
-  min-height: 400px;
+  aspect-ratio: 6 / 5;
+  // min-height: 320px;
+  // min-height: clamp(280px, 320px, 360px);
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
   text-shadow: 0 0 24px rgba(0, 0, 0, 0.6);
 
+  @media (max-width: 1100px) {
+    aspect-ratio: 2 / 1;
+  }
+
+  @media (max-width: 880px) {
+    aspect-ratio: 6 / 5;
+  }
+
+  @media (max-width: 550px) {
+    aspect-ratio: 3 / 2;
+  }
+
   .card-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    @media (max-width: 550px) {
+      font-size: 1.4rem;
+    }
   }
 
   &.card-has-bg {
@@ -43,34 +79,29 @@
         );
       }
     }
-
-    @media (max-width: 992px) {
-      background-size: cover;
-      max-height: 300px;
-    }
-
-    @media (max-width: 370px) {
-      background-size: cover;
-    }
   }
-  .card-footer {
+  .card-footer-field {
     background: none;
     border-top: none;
 
     h3 {
-      font-size: 2rem;
+      font-size: 1.8rem;
+      @media (max-width: 550px) {
+        font-size: 1.4rem;
+      }
     }
   }
 
-  .card-body {
+  .card-body-field {
+    flex: 1 1 auto;
     p {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
 
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
   }
   &:hover {
-    .card-body {
+    .card-body-field {
       margin-top: 12px;
       transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
     }
