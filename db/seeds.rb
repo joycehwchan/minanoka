@@ -15,6 +15,8 @@ end
 
 # Test Accounts
 ## Renters
+
+
 User.create!(email: "blue@renter.com", password: "AwesomePassword!123", name: "Renter Blue", landowner: false)
 
 User.create!(email: "red@renter.com", password: "AwesomePassword!123", name: "Renter Red", landowner: false)
@@ -39,7 +41,7 @@ Field.destroy_all
 def field_count
   puts "... have added #{Field.count} fields. Plz wait! "
 end
-2.times do
+10.times do
   field_owner = User.where("landowner = 'true'").sample
   unspash_img = "https://source.unsplash.com/640x360?field"
   img_1 = URI.parse(unspash_img).open
@@ -101,17 +103,41 @@ date_to_setter = date_from_setter + rand(7..30)
 
 5.times do
   field_setter = Field.all.sample
-  booking = Booking.new(date_from: date_from_setter,
-                        date_to: date_to_setter,
-                        price_per_day: field_setter.price,
-                        status: ["pending", "confirmed", "rejected"].sample,
-                        user: User.where("landowner = false").sample,
-                        field: Field.all.sample)
-  booking.save
+  # booking_status_setter = ["pending", "confirmed", "rejected"].sample
+  booking = Booking.create!(date_from: date_from_setter,
+                            date_to: date_to_setter,
+                            price_per_day: field_setter.price,
+                            user: User.where("landowner = false").sample,
+                            field: field_setter)
   date_from_setter += 31
   date_to_setter = date_from_setter + rand(7..30)
+  # booking.status = booking_status_setter
+  # booking.save
   puts " - Created booking #{booking.date_from} to #{booking.date_to}"
   puts " - There are #{Booking.count} booking(s) created..."
 end
+
+puts " - Creating specific bookings for the TEST RENTERS"
+test_renters = ["blue@renter.com", "red@renter.com", "green@renter.com"]
+date_to_setter = date_from_setter + rand(7..30)
+
+5.times do
+  test_renters.each do |renter|
+    field_setter = Field.all.sample
+    # booking_status_setter = ["pending", "confirmed", "rejected"].sample
+    booking = Booking.create!(date_from: date_from_setter,
+                              date_to: date_to_setter,
+                              price_per_day: field_setter.price,
+                              user: User.find_by(email: renter),
+                              field: field_setter)
+    date_from_setter += 31
+    date_to_setter = date_from_setter + rand(7..30)
+    # booking.status = booking_status_setter
+    # booking.save
+    puts " - Created booking for TEST RENTER #{booking.date_from} to #{booking.date_to}"
+    puts " - There are #{Booking.count} booking(s) created..."
+  end
+end
+
 puts "################"
 puts "All seeds done!"
