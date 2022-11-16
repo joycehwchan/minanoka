@@ -41,19 +41,20 @@ Field.destroy_all
 def field_count
   puts "... have added #{Field.count} fields. Plz wait! "
 end
+
 10.times do
   field_owner = User.where("landowner = 'true'").sample
-  unspash_image = "https://source.unsplash.com/640x360?field"
-  field_image = URI.parse(unspash_image).open
   field = Field.new(name: Faker::Movies::StarWars.planet,
                     size: rand(50..1500),
                     description: Faker::Lorem.paragraph_by_chars,
                     location: Faker::Address.full_address,
                     price: rand(1500..5000),
                     user_id: field_owner.id)
-  5.times do
-    field.images.attach(io: field_image, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-  end
+  field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+  field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+  field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+  field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+  field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
   field.featured_img = field.images.first.key
   field.save
   field_count
@@ -65,17 +66,17 @@ puts " - Creating the extra fields for test farmers now..."
 test_farmers = ["apple@farmer.com", "orange@farmer.com", "pear@farmer.com"]
 2.times do
   test_farmers.each do |farmer|
-    unspash_image = "https://source.unsplash.com/640x360?field"
-    field_image = URI.parse(unspash_image).open
     field = Field.new(name: Faker::Movies::StarWars.planet,
                       size: rand(50..1500),
                       description: Faker::Lorem.paragraph_by_chars,
                       location: Faker::Address.full_address,
                       price: rand(1500..5000),
                       user_id: User.find_by(landowner: farmer).id)
-    5.times do
-      field.images.attach(io: field_image, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-    end
+    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
     field.featured_img = field.images.first.key
     field.save
     field_count
