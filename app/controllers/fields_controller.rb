@@ -17,7 +17,8 @@ class FieldsController < ApplicationController
   end
 
   def create
-    @field = Field.new(field_params)
+    @field = Field.new(fields_params)
+    @field.user = current_user
     authorize @field
     if @field.save
       redirect_to fields_path(@field)
@@ -28,7 +29,7 @@ class FieldsController < ApplicationController
 
   private
 
-  def field_params
-    params.require(:field).permit(:name, :size, :description, :location, :price, :featured_img, images: [])
+  def fields_params
+    params.require(:field).permit(:name, :size, :description, :location, :price, :user_id, images: [])
   end
 end
