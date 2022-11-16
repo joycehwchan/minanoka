@@ -1,7 +1,5 @@
 <div class="container container-field mt-3 mb-5">
-  <%= link_to "Back", :back %>
-  <br>
-  <br>
+  <%= link_to "Back", :back, class: "btn btn-outline-secondary mb-4" %>
   <%= render 'fields/carousel', field: @field %>
   <div class="my-4">
     <div class="row mb-4">
@@ -13,12 +11,8 @@
           <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Book now!
           </button>
-        <% else  %>
-          <%= link_to  new_user_session_path do %>
-            <button type="button" class="btn btn-primary btn-lg px-5 text-nowrap float-end" >
-              Book now!
-            </button>
-          <% end %>
+        <% else %>
+          <%= link_to "Book now!", new_user_session_path, class:"btn btn-primary btn-lg px-5 text-nowrap float-end" %>
         <% end %>
       </div>
     </div>
@@ -28,6 +22,13 @@
       <h2>About this field</h2>
       <p><strong>Size:</strong> <%= @field.size %> m2</p>
       <p><strong>Price:</strong> ¥ <%= number_to_currency(@field.price, unit: "", precision: 0) %> per day</p>
+    </div>
+    <div class="field-info mt-5">
+      <h2>Field Owner</h2>
+      <div class="d-flex align-items-end gap-3">
+        <img class="avatar" style="height: 40px" src="https://source.unsplash.com/640x360?farm-worker">
+        <p><%= @field.user.name %></p>
+      </div>
     </div>
   </div>
   <!-- Booking form modal -->

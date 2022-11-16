@@ -1,23 +1,28 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!, :create
-
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking).reverse
   end
 
   def create
-    raise
     @booking = Booking.new(bookings_params)
     @field = Field.find(params[:field_id])
     @booking.field = @field
-    @booking.price_per_day = 10_000
     @booking.user = current_user
+    @booking.price_per_day = @field.price
     authorize @booking
-    if @booking.save!
+    if @booking.save
       redirect_to bookings_path
     else
-      render "bookings/from", status: :unprocessable_entity
+      flash[:alert] = @booking.errors.full_messages.first
+      render 'fields/show', status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    authorize @booking
+    redirect_to bookings_path, status: :see_other
   end
 
   private

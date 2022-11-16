@@ -1,10 +1,10 @@
-<%= simple_form_for [@field, @booking] do |f| %>
+<%= simple_form_for [@field, @booking], data: {turbo: false} do |f| %>
   <%= f.input :date_from %>
   <%= f.input :date_to %>
   <hr>
   <div class="mb-3">
     <h3>Price per day: ¥<%= number_to_currency(@field.price, unit: "", precision: 0) %> </h3>
-    <h3>Total price: ¥<%= number_to_currency(@field.price, unit: "", precision: 0) %> </h3>
+    <!-- <h3>Total price: ¥<%= number_to_currency(@field.price, unit: "", precision: 0) %> </h3> -->
   </div>
   <%#= f.input :price_per_day, input_html: { :value => @field.price, readonly: true }  %>
   <div class="d-flex">

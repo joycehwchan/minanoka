@@ -15,9 +15,9 @@
   <h3>There are <%= pluralize(@fields.count, 'field') %></h3>
   <div class="row mt-2 gy-3">
     <% @fields.each do |field| %>
-    <div class="col-12 col-md-6">
-      <%= render 'fields/card', field: field %>
-    </div>
+      <div class="col-12 col-md-6">
+        <%= render 'fields/card', field: field %>
+      </div>
     <% end %>
   </div>
 </div>
