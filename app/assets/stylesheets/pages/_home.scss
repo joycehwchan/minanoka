@@ -42,17 +42,24 @@
 .cards-home {
   display: flex;
   justify-content: space-between;
-  max-width: 1000px;
-  max-width: 1000px;
   margin-bottom: 16px;
 
   .card-field {
-    display: flex;
-    justify-content: space-between;
-    max-width: 700px;
-    max-height: 150px;
-  }
+    min-height: 200px;
+    margin-bottom: 8px;
 
+    .card-title {
+      font-size: 1.2rem;
+    }
+
+    .card-body p {
+      font-size: 0.6rem;
+    }
+
+    .card-footer {
+      display: none;
+    }
+  }
 }
 
 .item-2 {
@@ -64,9 +71,9 @@
 }
 
 .h2-home {
-   text-align: left;
-   margin-top: 24px;
- }
+  text-align: left;
+  margin-top: 24px;
+}
 
 .p-footer-home {
   word-break: break-all;
