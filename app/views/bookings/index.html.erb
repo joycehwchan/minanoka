@@ -1,7 +1,9 @@
 <div class="container my-5 booking-container">
   <h1>Welcome back, <%= current_user.name %>!</h1>
   <h3>You have <%= pluralize(@bookings.count, 'booking') %>. </h3>
-  <% @bookings.each do |booking| %>
-    <%= render 'bookings/card', booking: booking %>
-  <% end %>
+  <div class="cards-booking">
+    <% @bookings.each do |booking| %>
+      <%= render 'bookings/card', booking: booking %>
+    <% end %>
+  </div>
 </div>
