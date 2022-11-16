@@ -1,62 +1,33 @@
-<div class="d-flex main-container-1">
-  <div class="d-flex flex-column align-items-start justify-content-center item-left">
-    <h1>Welcome to MinaNoka!</h1>
-    <p>Lorem ipsum dolor sit amet consectetur. Quis lacus faucibus
-      convallis sociis facilisi faucibus fermentum. Eu nullam hac orci
-      neque mi.</p>
-    <button type="button" class="btn btn-primary">CTA Button</button>
-  </div>
-  <div class="d-flex">
-    <%= image_tag "rice_field.jpg", alt: "Farming", width: 200, class:"top-section-image" %>
-  </div>
-</div>
-<div class="main-container-2">
-  <div class="d-flex justify-content-between header-section-2">
-    <div class="flexbox-item1">
-      <h2 class="h2-home">Most popular fields</h2>
-    </div>
-    <div class="flexbox-item-2 seemore">
-      <p><%= link_to "see more", fields_path %></p>
+<div class="container container-home">
+  <div class="d-flex main-container-1">
+    <div class="d-flex flex-column align-items-start justify-content-center item-left">
+      <h1>Welcome to MinaNoka!</h1>
+      <p>MinaNoka rental lifestyle in the countryside. The field farmer rental lifestyle is a great way to live out your dreams of living in nature. You'll have access to a wide variety of crops, fruits and vegetables that you can grow yourself and sell or use as part of your own business.</p>
+      <button type="button" class="btn btn-primary">Log in</button>
     </div>
   </div>
-  <div class="cards-home">
-    <div class="card-home">
-      <%= image_tag "rice_field.jpg", alt: "Farming", width: 200 %>
+  <div class="main-container-2">
+    <div class="d-flex justify-content-between align-items-center header-section-2">
+      <div class="flexbox-item1">
+        <h2 class="h2-home">Most popular fields</h2>
+      </div>
+      <div class="flexbox-item-2 seemore">
+        <p class="seemore_link"><%= link_to "see more", fields_path %></p>
+      </div>
     </div>
-    <div class="card-home">
-      <%= image_tag "rice_field.jpg", alt: "Farming", width: 200 %>
-    </div>
-    <div class="card-home">
-      <%= image_tag "rice_field.jpg", alt: "Farming", width: 200 %>
+    <div class="row cards-home">
+      <% @fields.each do |field|  %>
+       <div class="col-12 col-md-4">
+      <%= render "fields/card", field: field  %>
+      </div>
+      <% end %>
     </div>
   </div>
   <div class="home-footer footer">
     <h2 class="h2-home">What is MinaNoka?</h2>
-    <p class="p-footer-home">Lorem ipsum dolor sit amet consectetur. Nec fringilla
-      quis velit. Posuere velit lorem dis nulla risus viverra. Diam urna
-      eleifend arcu at vel phasellus. Scelerisque nisl ornare quam amet diam
-      tortor mauris. Amet euismod amet lacus nunc adipiscing. Sit pellentesque
-      scelerisque fringilla fames sit ullamcorper. Consectetur tel. Lorem ipsum dolor sit amet consectetur. Nec fringilla
-      quis velit. Posuere velit lorem dis nulla risus viverra. Diam urna
-      eleifend arcu at vel phasellus. Scelerisque nisl ornare quam amet diam
-      tortor mauris. Amet euismod amet lacus nunc adipiscing. Sit pellentesque
-      scelerisque fringilla fames sit ullamcorper. Consectetur tel. Lorem ipsum dolor sit amet consectetur. Nec fringilla
-      quis velit. Posuere velit lorem dis nulla risus viverra. Diam urna
-      eleifend arcu at vel phasellus. Scelerisque nisl ornare quam amet diam
-      tortor mauris. Amet euismod amet lacus nunc adipiscing. Sit pellentesque
-      scelerisque fringilla fames sit ullamcorper. Consectetur tel</p>
-    <%= image_tag "rice_field.jpg", alt: "Farming", class:"footer-image"%>
-    <p class="p-footer-home">Lorem ipsum dolor sit amet consectetur. Nec fringilla
-      quis velit. Posuere velit lorem dis nulla risus viverra. Diam urna
-      eleifend arcu at vel phasellus. Scelerisque nisl ornare quam amet diam
-      tortor mauris. Amet euismod amet lacus nunc adipiscing. Sit pellentesque
-      scelerisque fringilla fames sit ullamcorper. Consectetur tel. Lorem ipsum dolor sit amet consectetur. Nec fringilla
-      quis velit. Posuere velit lorem dis nulla risus viverra. Diam urna
-      eleifend arcu at vel phasellus. Scelerisque nisl ornare quam amet diam
-      tortor mauris. Amet euismod amet lacus nunc adipiscing. Sit pellentesque
-      scelerisque fringilla fames sit ullamcorper. Consectetur tel. Lorem ipsum dolor sit amet consectetur. Nec fringilla
-      quis velit. Posuere velit lorem dis nulla risus viverra. Diam urna
-      eleifend arcu at vel phasellus. Scelerisque nisl ornare quam amet diam
-      tortor mauris. Amet euismod amet lacus nunc adipiscing. Sit pellentesque
-      scelerisque fringilla fames sit ullamcorper. Consectetur tel</p>
+    <p class="p-footer-home">Japan is known for its rich farming tradition, and we believe that you should be able to experience that tradition too! That’s why we’ve made it easy for you to get in on the action with our Japan Farming Experience.
+    Our Japan Farming Experience lets you rent a field and grow your own crops, just like they do in Japan. You’ll get your own plot of land, and all the seeds, tools, and knowledge you need to grow some amazing plants—you can even plant rice!
+    We know how stressful life can be sometimes, so we want you to be able to take some time out of your day and relax as you tend to your crops. We offer this service at three different locations across Japan: Kyoto, Tokyo, and Osaka. So if you’re
+    looking for an escape from the hustle and bustle of city life or just want a unique way to spend time with your family or friends, then this might just be the thing for you!</p>
   </div>
+</div>
