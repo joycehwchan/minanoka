@@ -11,6 +11,8 @@ class Booking < ApplicationRecord
   validate :not_overlapping
   validates :user_id, presence: true
 
+  validate :booking_duration
+
   enum status: { pending: "pending", confirmed: "confirmed", rejected: "rejected" }, _default: :pending
 
   def date_from_cannot_be_in_the_past
@@ -27,6 +29,10 @@ class Booking < ApplicationRecord
 
   def days
     (date_to - date_from).to_i
+  end
+
+  def booking_duration
+    errors.add(:base, "Minimum booking duration 1 Day") if (date_to - date_from).to_i.zero?
   end
 
   def not_overlapping
