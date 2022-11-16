@@ -50,11 +50,11 @@ end
                     location: Faker::Address.full_address,
                     price: rand(1500..5000),
                     user_id: field_owner.id)
-  field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-  field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-  field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-  field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-  field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+                    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+                    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?farm").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+                    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?flour").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+                    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?farmer").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+                    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?tomatoes").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
   field.featured_img = field.images.first.key
   field.save
   field_count
@@ -73,10 +73,10 @@ test_farmers = ["apple@farmer.com", "orange@farmer.com", "pear@farmer.com"]
                       price: rand(1500..5000),
                       user_id: User.find_by(landowner: farmer).id)
     field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
-    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?farm").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?flour").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?farmer").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
+    field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?tomatoes").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
     field.featured_img = field.images.first.key
     field.save
     field_count
