@@ -14,7 +14,7 @@
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "My bookings",
-                current_user.landowner  ? bookings_path : landowner_bookings_path ,
+                current_user.landowner ? landowner_bookings_path : bookings_path,
                 class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
