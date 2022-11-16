@@ -12,9 +12,10 @@
         <div class="booking-info flex-grow-1">
           <% if current_user.landowner %>
             <p><strong>Request from: </strong> <%= booking.user.name %></p>
-            <p><strong>Price per night: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
+            <p><strong>Price per day: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
             <p><strong>Renting start: </strong> <%= booking.date_from %></p>
             <p><strong>Renting ends: </strong> <%= booking.date_to %></p>
+            <p><strong>Total amount: </strong>¥ <%= number_to_currency(booking.full_price, unit: "", precision: 0) %></p>
             <div class="btn-group-booking flex-sm-column">
               <% if booking.status != 'rejected' %>
                 <%= link_to  'Confirm booking', '#', class:"btn btn-primary booking-btn" %>
@@ -23,10 +24,10 @@
               <%#= link_to  'See field', field_path(booking.field), class:"btn btn-secondary booking-btn px-4" %>
             </div>
           <% else %>
-            <p><strong>Price per night: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
+            <p><strong>Price per day: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
             <p><strong>Renting start: </strong> <%= booking.date_from %></p>
             <p><strong>Renting ends: </strong> <%= booking.date_to %></p>
-            <p><strong>Total amount: </strong>¥ <%= booking.full_price %></p>
+            <p><strong>Total amount: </strong>¥ <%= number_to_currency(booking.full_price, unit: "", precision: 0) %></p>
             <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
             <div class="btn-group-booking flex-sm-column">
               <% if booking.status != 'rejected' %>
