@@ -21,8 +21,8 @@ class Booking < ApplicationRecord
     errors.add(:date_to, "Can't be in the past") if date_to.present? && date_to < Date.today
   end
 
-  def price
-    field.price * (date_to - date_from).to_i
+  def full_price
+    price_per_day * (date_to - date_from).to_i
   end
 
   def days

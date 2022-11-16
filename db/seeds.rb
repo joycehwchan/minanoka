@@ -100,9 +100,10 @@ date_from_setter = Date.today;
 date_to_setter = date_from_setter + rand(7..30)
 
 5.times do
-  
+  field_setter = Field.all.sample
   booking = Booking.new(date_from: date_from_setter,
                         date_to: date_to_setter,
+                        price_per_day: field_setter.price,
                         status: rand(0..2),
                         user: User.where("landowner = false").sample,
                         field: Field.all.sample)
