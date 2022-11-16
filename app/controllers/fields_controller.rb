@@ -19,6 +19,7 @@ class FieldsController < ApplicationController
   def create
     @field = Field.new(fields_params)
     @field.user = current_user
+    @field.featured_img = @field.images.first.key
     authorize @field
     if @field.save
       redirect_to fields_path(@field)
