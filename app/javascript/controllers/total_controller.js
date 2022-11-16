@@ -2,12 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="total"
 export default class extends Controller {
-  static targets = [ 'startDate','endDate' ]
+  static targets = [ 'startDate','endDate' ];
+  static values = {
+    price: String,
+  }
+  
   connect() {
-    console.log("hi ");
   }
   amount(){
-    console.dir(this.startDateTarget.value);
+    console.dir(this.price);
 
   }
 }
