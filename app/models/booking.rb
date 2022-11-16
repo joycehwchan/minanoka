@@ -36,7 +36,7 @@ class Booking < ApplicationRecord
   end
 
   def not_overlapping
-    existing_bookings = Booking.where("date_from <= ? AND date_to >= ?", date_to, date_from)
+    existing_bookings = Booking.where("date_from <= ? AND date_to >= ? AND field_id = ?", date_to, date_from, field)
     errors.add(:base, "Already booked for this days") if existing_bookings.any?
   end
 end
