@@ -125,16 +125,15 @@ date_to_setter = date_from_setter + rand(7..30)
 5.times do
   test_renters.each do |renter|
     field_setter = Field.all.sample
-    # booking_status_setter = ["pending", "confirmed", "rejected"].sample
-    booking = Booking.create!(date_from: date_from_setter,
+    booking = Booking.new(date_from: date_from_setter,
                               date_to: date_to_setter,
                               price_per_day: field_setter.price,
+                              status: Booking.statuses.keys.sample,
                               user: User.find_by(email: renter),
                               field: field_setter)
+    booking.save!
     date_from_setter += 31
     date_to_setter = date_from_setter + rand(7..30)
-    # booking.status = booking_status_setter
-    # booking.save
     puts " - Created booking for TEST RENTER #{booking.date_from} to #{booking.date_to}"
     puts " - There are #{Booking.count} booking(s) created..."
   end
