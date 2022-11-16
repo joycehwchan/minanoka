@@ -29,6 +29,13 @@
       <p><strong>Size:</strong> <%= @field.size %> m2</p>
       <p><strong>Price:</strong> ¥ <%= number_to_currency(@field.price, unit: "", precision: 0) %> per day</p>
     </div>
+    <div class="field-info mt-5">
+      <h2>Field Owner</h2>
+      <div class="d-flex align-items-start gap-3">
+        <img class="avatar" style="height: 40px" src="https://source.unsplash.com/640x360?farm-worker">
+        <p><strong>Name:</strong> <%= @field.user.name %></p>
+      </div>
+    </div>
   </div>
   <!-- Booking form modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
