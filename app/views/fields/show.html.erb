@@ -3,15 +3,15 @@
   <%= render 'fields/carousel', field: @field %>
   <div class="my-4">
     <div class="row mb-4">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6 field-name">
         <h1 class="m-0"><%= @field.name %></h1>
       </div>
       <div class="col-12 col-md-6">
         <% if user_signed_in? && current_user == @field.user%>
           <!-- Edit and Remove btn for field owner -->
-          <div class="float-end">
-            <%= link_to 'Edit field', '#', class: "btn btn-primary btn px-4 text-nowrap" %>
-            <%= link_to 'Remove field', '#', class: "btn btn-danger btn px-4 text-nowrap" %>
+          <div class="btn-group-field">
+            <%= link_to 'Edit field', '#', class: "btn btn-primary btn px-4 text-nowrap btn-field" %>
+            <%= link_to 'Remove field', '#', class: "btn btn-danger btn px-4 text-nowrap btn-field" %>
           </div>
         <% elsif user_signed_in? %>
           <!-- Booking form for logged in users -->

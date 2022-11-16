@@ -1,0 +1,24 @@
+.btn-group-field {
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+}
+
+@media (max-width: 767px) {
+  .btn-field {
+    flex-grow: 1;
+  }
+  .btn-group-field {
+    margin-bottom: 32px;
+    order: 1;
+  }
+  .field-name {
+    order: 2;
+  }
+}
+
+@media (max-width: 360px) {
+  .btn-group-field {
+    flex-direction: column;
+  }
+}
