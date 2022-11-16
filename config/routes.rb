@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   namespace :landowner do
     resources :bookings, only: :index
   end
-  resources :bookings, only: [:index, :update,:destroy]
+  resources :bookings, only: [:index, :update,:destroy,:edit]
 end

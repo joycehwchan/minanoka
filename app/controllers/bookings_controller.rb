@@ -20,6 +20,8 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @field = @booking.field
+    authorize @booking
   end
 
   def update
