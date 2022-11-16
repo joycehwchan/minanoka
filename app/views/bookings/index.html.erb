@@ -4,6 +4,20 @@
   <div class="cards-booking mt-4">
     <% @bookings.each do |booking| %>
       <%= render 'bookings/card', booking: booking %>
+      <!-- Booking form modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Booking request</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= render 'bookings/booking' , booking: booking %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
