@@ -38,14 +38,14 @@
   }
 
   @media (max-width: 550px) {
-    aspect-ratio: 2 / 1;
-    h3 {
-      font-size: 1rem;
-    }
+    aspect-ratio: 3 / 2;
   }
 
   .card-title {
     font-size: 1.8rem;
+    @media (max-width: 550px) {
+      font-size: 1.4rem;
+    }
   }
 
   &.card-has-bg {
@@ -86,6 +86,9 @@
 
     h3 {
       font-size: 1.8rem;
+      @media (max-width: 550px) {
+        font-size: 1.4rem;
+      }
     }
   }
 
