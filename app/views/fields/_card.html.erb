@@ -1,14 +1,12 @@
-<div class="col-12 col-md-6">
-  <div class="card card-field text-white card-has-bg click-col" style="background-image:url(<%= field.featured_img? ? cl_image_path(field.featured_img) : image_url('https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80') %>);">
-    <div class="card-img-overlay d-flex flex-column">
-      <div class="card-body">
-        <h3 class="card-title mt-0 text-white"><%= field.name %></h3>
-        <p class="text-white"><i class="fa-solid fa-location-dot"></i> <%= field.location %></p>
-      </div>
-      <div class="card-footer">
-        <h3 class="text-white">¥ <%= number_to_currency(field.price, unit: "", precision: 0) %></h3>
-        <%= link_to '', field_path(field), class: 'card-link'  %>
-      </div>
+<div class="card card-field text-white card-has-bg click-col" style="background-image:url(<%= field.featured_img? ? cl_image_path(field.featured_img) : image_url('https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80') %>);">
+  <div class="card-img-overlay d-flex flex-column">
+    <div class="card-body">
+      <h3 class="card-title mt-0 text-white"><%= field.name %></h3>
+      <p class="text-white"><i class="fa-solid fa-location-dot"></i> <%= field.location %></p>
+    </div>
+    <div class="card-footer">
+      <h3 class="text-white">¥ <%= number_to_currency(field.price, unit: "", precision: 0) %></h3>
+      <%= link_to '', field_path(field), class: 'card-link'  %>
     </div>
   </div>
 </div>
