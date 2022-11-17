@@ -14,9 +14,9 @@
         <div class="booking-field-img"
                  style="background-image:url(<%= booking.field.images.first.key ? cl_image_path(booking.field.images.first.key) : image_url('https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80') %>);">
         </div>
-
         <div class="booking-info flex-grow-1">
           <% if current_user.landowner %>
+            <!-- landowner card -->
             <p><strong>Request from: </strong> <%= booking.user.name %></p>
             <p><strong>Price per day: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
             <p><strong>Renting start: </strong> <%= booking.date_from %></p>
@@ -36,6 +36,7 @@
               <% end %>
             </div>
           <% else %>
+            <!-- renter card -->
             <p><strong>Price per day: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
             <p><strong>Renting start: </strong> <%= booking.date_from %></p>
             <p><strong>Renting ends: </strong> <%= booking.date_to %></p>
@@ -43,7 +44,7 @@
             <p><strong>Total amount: </strong>¥ <%= number_to_currency(booking.full_price, unit: "", precision: 0) %></p>
             <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
             <div class="btn-group-booking flex-sm-column">
-              <% if booking.status != 'rejected' %>
+              <% if booking.status == 'pending' %>
                 <% if policy(booking).edit? %>
                   <button type="button" class="btn btn-primary booking-btn px-4" data-bs-toggle="modal" data-bs-target="#modal<%= i %>">
                     Change dates
