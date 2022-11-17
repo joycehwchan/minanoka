@@ -1,9 +1,14 @@
 <div class="card card-booking mb-3">
-  <div class="card-header">
-    Status: <%= booking.status ? booking.status : "--" %>
-  </div>
   <div class="card-body">
-    <h2 class="card-title"><%= booking.field.name %></h2>
+    <div class="d-flex align-items-center">
+      <h2 class="card-title pt-3"><%= booking.field.name %></h2>
+      <div class="badge rounded-pill py-2 px-3 ms-2
+                  <%= "text-bg-warning" if booking.status == 'pending' %>
+                  <%= "text-bg-success" if booking.status == 'confirmed' %>
+                  <%= "text-bg-danger" if booking.status == 'rejected' %> ">
+        <%= booking.status ? booking.status : "--" %>
+      </div>
+    </div>
     <p class="card-text">
       <div class="booking-content">
         <div class="booking-field-img"
@@ -35,9 +40,9 @@
               <%= link_to  'See field', field_path(booking.field), class:"btn btn-primary booking-btn px-4" %>
               <% if booking.status != 'rejected' %>
                 <%= link_to 'Cancel booking', booking_path(booking), data: { turbo_method: :delete  , turbo_confirm: "Cancel this booking ?" }, class:"btn btn-outline-danger booking-btn"  %>
-              <% end %>
-              <% if policy(booking).edit? %>
-                <%= link_to  'Edit', edit_booking_path(booking), class:"btn btn-primary booking-btn px-4" %>
+                <% if policy(booking).edit? %>
+                  <%= link_to  'Edit', edit_booking_path(booking), class:"btn btn-primary booking-btn px-4" %>
+                <% end %>
               <% end %>
             </div>
           <% end %>
