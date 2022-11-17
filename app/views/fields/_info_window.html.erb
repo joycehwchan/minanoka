@@ -1,0 +1,8 @@
+<div class="popup-field-img"
+      style="background-image:url(<%= field.images.attached? ? cl_image_path(field.featured_img) : image_url('https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80') %>);">
+  <div class="popup-text">
+    <h2 class="text-white"><%= field.name %></h2>
+    <p class="badge bg-primary mb-1"><%= field.location %></p>
+  </div>
+  <%= link_to  'See more', field_path(field), class:"btn btn-light" %>
+</div>
