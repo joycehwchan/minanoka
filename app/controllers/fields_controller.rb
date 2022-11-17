@@ -7,7 +7,8 @@ class FieldsController < ApplicationController
       {
         lat: field.latitude,
         lng: field.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { field: field })
+        popup_html: render_to_string(partial: "fields/map_popup", locals: { field: field }),
+        marker_html: render_to_string(partial: 'fields/map_marker', locals: { field: field })
       }
     end
   end
