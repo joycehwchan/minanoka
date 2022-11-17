@@ -41,6 +41,7 @@ class FieldsController < ApplicationController
 
   def update
     @field.update(fields_params)
+    
     redirect_to landowner_bookings_path
   end
 
