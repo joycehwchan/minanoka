@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     @booking.price_per_day = @field.price
     authorize @booking
     if @booking.save
+      flash[:success] = "Booking created!"
       redirect_to bookings_path
     else
       flash[:alert] = @booking.errors.full_messages.first
@@ -28,6 +29,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(bookings_params)
     authorize @booking
+    flash[:success] = "Booking updated!"
     redirect_to bookings_path
   end
 

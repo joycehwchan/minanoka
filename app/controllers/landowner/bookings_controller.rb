@@ -7,6 +7,7 @@ class Landowner::BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(bookings_params)
     authorize @booking
+    flash[:success] = "Booking confirmed!"
     redirect_to landowner_bookings_path
   end
 
