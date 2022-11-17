@@ -12,5 +12,9 @@
       </div>
     </div>
   </div>
-  <img id="map" src='https://github.com/lewagon/fullstack-images/blob/master/frontend/map-static.png?raw=true'>
+  <div id="map"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
