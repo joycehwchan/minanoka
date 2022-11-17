@@ -1,0 +1,11 @@
+<div>
+  <%= simple_form_for @field do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :location %>
+    <%= f.input :size, input_html: { min: '0' } %>
+    <%= f.input :price, input_html: { min: '0' } %>
+    <%= f.input :images, as: :file, input_html: { multiple: true } %>
+    <%= f.button :submit, 'Edit a field', class: "btn btn-success" %>
+  <% end %>
+</div>

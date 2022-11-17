@@ -8,8 +8,10 @@ class Booking < ApplicationRecord
   validates :date_to, presence: true
   validate :date_to_cannot_be_in_the_past, on: :create
 
-  # validate :not_overlapping
+  validate :not_overlapping
   validates :user_id, presence: true
+
+  validates :price_per_day, presence: true
 
   validate :booking_duration
 
@@ -36,7 +38,8 @@ class Booking < ApplicationRecord
   end
 
   def not_overlapping
-    existing_bookings = Booking.where("date_from <= ? AND date_to >= ? AND field_id = ?", date_to, date_from, field)
+    existing_bookings = Booking.where("date_from <= ? AND date_to >= ? AND field_id = ?", date_to, date_from,
+                                      field).where.not(id:)
     errors.add(:base, "Already booked for this days") if existing_bookings.any?
   end
 end

@@ -18,6 +18,13 @@ body {
   background-color: $light-gray;
 }
 
+main {
+  position: absolute;
+  top: 64px; /* Header Height */
+  bottom: 0px; /* Footer Height */
+  width: 100%;
+}
+
 h1 {
   font-size: 2.5em;
   font-weight: 700;
