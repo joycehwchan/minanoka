@@ -3,12 +3,12 @@ class FieldsController < ApplicationController
   before_action :set_field, only: %i[update edit destroy]
   def index
     @fields = policy_scope(Field.search(params))
-
-    # Not working properly yet...
     @markers = @fields.geocoded.map do |field|
       {
         lat: field.latitude,
-        lng: field.longitude
+        lng: field.longitude,
+        popup_html: render_to_string(partial: "fields/map_popup", locals: { field: field }),
+        marker_html: render_to_string(partial: 'fields/map_marker', locals: { field: field })
       }
     end
   end
