@@ -1,5 +1,6 @@
 .booking-container {
   max-width: 1000px;
+  padding-bottom: 40px;
 }
 
 .booking-field-img {
@@ -33,5 +34,26 @@
 
   @media (max-width: 400px) {
     min-width: 100%;
+  }
+}
+
+.booking-title-status-container {
+  display: flex;
+  align-items: center;
+
+  .badge {
+    margin-left: 16px;
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: flex-start;
+    .card-title {
+      order: 2;
+    }
+    .badge {
+      order: 1;
+      margin-left: 0;
+    }
   }
 }
