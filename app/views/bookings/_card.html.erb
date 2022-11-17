@@ -12,8 +12,9 @@
     <p class="card-text">
       <div class="booking-content">
         <div class="booking-field-img"
-                 style="background-image:url(<%= booking.field.featured_img ? cl_image_path(booking.field.featured_img) : image_url('https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80') %>);">
+                 style="background-image:url(<%= booking.field.images.first.key ? cl_image_path(booking.field.images.first.key) : image_url('https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80') %>);">
         </div>
+
         <div class="booking-info flex-grow-1">
           <% if current_user.landowner %>
             <p><strong>Request from: </strong> <%= booking.user.name %></p>
