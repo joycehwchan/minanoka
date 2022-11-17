@@ -33,7 +33,8 @@ class FieldsController < ApplicationController
     if @field.save
       current_user.landowner = true
       current_user.save
-      redirect_to fields_path(@field)
+      flash[:success] = "Field created!"
+      redirect_to field_path(@field)
     else
       render :new, status: :unprocessable_entity
     end
