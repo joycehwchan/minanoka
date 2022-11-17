@@ -58,6 +58,7 @@ gem "geocoder"
 gem "open-uri"
 gem "pundit"
 gem "simple_form", github: "heartcombo/simple_form"
+gem 'tinymce-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
