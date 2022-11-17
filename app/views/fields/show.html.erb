@@ -32,7 +32,11 @@
       <p><strong>Price:</strong> ¥ <%= number_to_currency(@field.price, unit: "", precision: 0) %> per day</p>
     </div>
     <div class="field-info mt-5">
-      <div id="map"></div>
+      <div id="map"
+            data-controller="map"
+            data-map-markers-value="<%= @marker.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
     <div class="field-info mt-5">
       <h2>Field Owner</h2>
@@ -44,7 +48,7 @@
     <div class="field-info mt-5">
       <h2>Reviews</h2>
       <% @field.reviews.each do |review| %>
-          <%= render 'fields/review', review: review %>
+        <%= render 'fields/review', review: review %>
       <% end %>
       <%= render 'fields/new_review', review: Review.new, field: @field %>
     </div>
