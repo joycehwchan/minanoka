@@ -33,11 +33,11 @@
             <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
             <div class="btn-group-booking flex-sm-column">
               <%= link_to  'See field', field_path(booking.field), class:"btn btn-primary booking-btn px-4" %>
-              <% if booking.status != 'rejected' %>
-                <%= link_to 'Cancel booking', booking_path(booking), data: { turbo_method: :delete  , turbo_confirm: "Cancel this booking ?" }, class:"btn btn-outline-danger booking-btn"  %>
-              <% end %>
               <% if policy(booking).edit? %>
                 <%= link_to  'Edit', edit_booking_path(booking), class:"btn btn-primary booking-btn px-4" %>
+              <% end %>
+              <% if booking.status != 'rejected' %>
+                <%= link_to 'Cancel booking', booking_path(booking), data: { turbo_method: :delete  , turbo_confirm: "Cancel this booking ?" }, class:"btn btn-outline-danger booking-btn"  %>
               <% end %>
             </div>
           <% end %>

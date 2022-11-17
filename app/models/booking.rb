@@ -11,6 +11,8 @@ class Booking < ApplicationRecord
   validate :not_overlapping
   validates :user_id, presence: true
 
+  validates :price_per_day, presence: true
+
   validate :booking_duration
 
   enum status: { pending: "pending", confirmed: "confirmed", rejected: "rejected" }, _default: :pending
