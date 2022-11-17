@@ -2,11 +2,11 @@
   <h1>Add a field</h1>
   <div>
     <%= simple_form_for @field do |f| %>
-      <%= f.input :name %>
+      <%= f.input :name, :label => "Field name:" %>
       <%= f.rich_text_area :rich_description %>
-      <%= f.input :location %>
-      <%= f.input :size, input_html: { min: '0' } %>
-      <%= f.input :price, input_html: { min: '0' } %>
+      <%= f.input :location, :label => "Address:" %>
+      <%= f.input :size, :label => "Size (m2):", input_html: { min: '0' } %>
+      <%= f.input :price, :label => "Price (¥):", input_html: { min: '0' } %>
       <%= f.input :images, as: :file, input_html: { multiple: true } %>
       <%= f.button :submit, 'Add a field', class: "btn btn-success" %>
     <% end %>

@@ -2,14 +2,12 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="total"
 export default class extends Controller {
- static targets = [ "price","amount", "all" , "startDay", "endDay"]
+ static targets = [ "price","totalPrice", "startDay", "endDay"]
 
   connect() {
-    console.log(this.endDayTarget.value)
-    console.log(this.amountTarget.value)
+    console.log(this.totalPriceTarget.value)
     console.log(this.startDayTarget)
     console.log(this.endDayTarget)
-
     console.log(this.priceTarget.innerText)
   }
 
@@ -30,7 +28,7 @@ export default class extends Controller {
   if(isNaN(total)){
   total = 0;
 }
-  this.amountTarget.innerText = total
+  this.totalPriceTarget.innerText = total
 
 }
 }
