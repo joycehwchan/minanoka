@@ -15,9 +15,9 @@
       <h2>Most popular fields</h2>
       <p class="mb-0"><%= link_to "see more", fields_path %></p>
     </div>
-    <div class="row cards-home g-2">
+    <div class="cards-home">
       <% @fields.each do |field|  %>
-        <div class="col-6 col-md-3">
+        <div class="card-field-in-home">
           <%= render "fields/card", field: field  %>
         </div>
       <% end %>
