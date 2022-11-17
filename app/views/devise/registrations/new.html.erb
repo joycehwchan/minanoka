@@ -1,5 +1,4 @@
 <div class="container mt-5 form-width">
-
   <h2>Sign up</h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
     data: {turbo: false}) do |f| %>
@@ -16,11 +15,12 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.input :landowner, as: :boolean, checked_value: true, unchecked_value: false ,
+      hint: 'Check this box if you would like to rent out fields' %>
     </div>
     <div class="form-actions">
       <%= f.button :submit, "Sign up", class: "btn btn-primary mb-3" %>
     </div>
   <% end %>
   <%= render "devise/shared/links" %>
-
 </div>
