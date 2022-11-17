@@ -10,13 +10,19 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "fields/_show";
 
 body {
   margin: 0;
   padding: 0;
   font-size: 100%;
   background-color: $light-gray;
+}
+
+main {
+  position: absolute;
+  top: 64px; /* Header Height */
+  bottom: 0px; /* Footer Height */
+  width: 100%;
 }
 
 h1 {

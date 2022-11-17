@@ -1,8 +1,8 @@
 <div class="card card-booking mb-3">
   <div class="card-body">
-    <div class="d-flex align-items-center">
+    <div class="booking-title-status-container">
       <h2 class="card-title pt-3"><%= link_to booking.field.name, field_path(booking.field), class:"text-secondary" %></h2>
-      <div class="badge rounded-pill py-2 px-3 ms-2
+      <div class="badge rounded-pill py-2 px-3
                   <%= "text-bg-warning" if booking.status == 'pending' %>
                   <%= "text-bg-success" if booking.status == 'confirmed' %>
                   <%= "text-bg-danger" if booking.status == 'rejected' %> ">
@@ -33,7 +33,6 @@
                   <%= f.submit 'Reject booking', class: 'btn btn-outline-danger booking-btn' %>
                 <% end %>
               <% end %>
-              <%#= link_to  'See field', field_path(booking.field), class:"btn btn-secondary booking-btn px-4" %>
             </div>
           <% else %>
             <p><strong>Price per day: </strong> ¥ <%= number_to_currency(booking.field.price, unit: "", precision: 0) %></p>
@@ -43,7 +42,6 @@
             <p><strong>Total amount: </strong>¥ <%= number_to_currency(booking.full_price, unit: "", precision: 0) %></p>
             <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
             <div class="btn-group-booking flex-sm-column">
-              <%= link_to  'See field', field_path(booking.field), class:"btn btn-primary booking-btn px-4" %>
               <% if booking.status != 'rejected' %>
                 <% if policy(booking).edit? %>
                   <button type="button" class="btn btn-primary booking-btn px-4" data-bs-toggle="modal" data-bs-target="#modal<%= i %>">
