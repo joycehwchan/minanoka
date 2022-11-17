@@ -14,10 +14,10 @@
     </div>
   </div>
 <% end %>
-<% if success %>
+<% if flash[:success] %>
   <div class="container flash mt-3">
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <%= success %>
+      <%= flash[:success] %>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   </div>
