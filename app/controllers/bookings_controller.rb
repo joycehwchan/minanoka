@@ -6,11 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(bookings_params)
-    @field = Field.find(params[:field_id])
-    @booking.field = @field
-    @booking.user = current_user
-    @booking.price_per_day = @field.price
+    set_new_booking
     authorize @booking
     if @booking.save
       redirect_to bookings_path
@@ -46,5 +42,13 @@ class BookingsController < ApplicationController
 
   def bookings_params
     params.require(:booking).permit(:date_from, :date_to, :user_id, :field_id, :price_per_day, :status)
+  end
+
+  def set_new_booking
+    @booking = Booking.new(bookings_params)
+    @field = Field.find(params[:field_id])
+    @booking.field = @field
+    @booking.user = current_user
+    @booking.price_per_day = @field.price
   end
 end
