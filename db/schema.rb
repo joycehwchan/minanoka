@@ -75,7 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_083906) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "featured_img"
-    t.string "images"
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_fields_on_user_id"
