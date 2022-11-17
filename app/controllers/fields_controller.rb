@@ -27,7 +27,6 @@ class FieldsController < ApplicationController
   def create
     @field = Field.new(fields_params)
     @field.user = current_user
-
     @field.featured_img = @field.images.first.key
     authorize @field
     if @field.save
@@ -37,6 +36,13 @@ class FieldsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @field = Field.find(params[:id])
+    @field.destroy
+    authorize @field
+    redirect_to landowner_bookings_path, status: :see_other
   end
 
   private
