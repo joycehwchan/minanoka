@@ -7,6 +7,7 @@ class Field < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   validates :location, presence: true
+  has_rich_text :rich_description
   geocoded_by :location
   has_many_attached :images
   after_validation :geocode, if: :will_save_change_to_location?
