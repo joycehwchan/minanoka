@@ -1,5 +1,5 @@
 <div class="container my-5 form-width">
-  <h1>New Field</h1>
+  <h1>Add a field</h1>
   <div>
     <%= simple_form_for @field do |f| %>
       <%= f.input :name %>
@@ -8,7 +8,7 @@
       <%= f.input :size, input_html: { min: '0' } %>
       <%= f.input :price, input_html: { min: '0' } %>
       <%= f.input :images, as: :file, input_html: { multiple: true } %>
-      <%= f.button :submit 'Add a field', class: "btn btn-success" %>
+      <%= f.button :submit, 'Add a field', class: "btn btn-success" %>
     <% end %>
   </div>
 </div>
