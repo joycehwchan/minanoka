@@ -1,0 +1,9 @@
+<div class="container my-5 form-width">
+  <div>
+    <%= simple_form_for [field, review] do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating, input_html: { min: '0', max: '5' } %>
+      <%= f.button :submit, 'Add a Review', class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

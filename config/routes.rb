@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
   devise_for :users
   get 'pages/design', to: 'pages#design' # delete after setting up design system
 
@@ -6,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :fields do
     resources :bookings, only: :create
-    resources :reviews, only: :create
+    resources :reviews, only: [:create, :show]
   end
   namespace :landowner do
     resources :bookings, only: [:index, :update]
