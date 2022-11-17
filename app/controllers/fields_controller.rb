@@ -61,7 +61,6 @@ class FieldsController < ApplicationController
   def set_new_field
     @field = Field.new(fields_params)
     @field.user = current_user
-    @field.featured_img = @field.images.first.key
     authorize @field
   end
 
