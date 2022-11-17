@@ -18,6 +18,13 @@ class FieldsController < ApplicationController
     @booking.user = current_user
     @field = Field.find(params[:id])
     authorize @field
+    @marker =
+      [{
+        lat: @field.latitude,
+        lng: @field.longitude,
+        popup_html: render_to_string(partial: "fields/map_popup", locals: { field: @field }),
+        marker_html: render_to_string(partial: 'fields/map_marker', locals: { field: @field })
+      }]
   end
 
   def new
