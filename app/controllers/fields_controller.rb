@@ -1,5 +1,6 @@
 class FieldsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_field, only: %i[update edit destroy]
   def index
     @fields = policy_scope(Field.search(params))
 
@@ -25,27 +26,42 @@ class FieldsController < ApplicationController
   end
 
   def create
-    @field = Field.new(fields_params)
-    @field.user = current_user
-    @field.featured_img = @field.images.first.key
-    authorize @field
+    set_new_field
     if @field.save
       current_user.landowner = true
       current_user.save
-      redirect_to fields_path(@field)
+      redirect_to landowner_bookings_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def edit
+  end
+
+  def update
+    @field.update(fields_params)
+    redirect_to landowner_bookings_path
+  end
+
   def destroy
-    @field = Field.find(params[:id])
     @field.destroy
-    authorize @field
     redirect_to landowner_bookings_path, status: :see_other
   end
 
   private
+
+  def set_field
+    @field = Field.find(params[:id])
+    authorize @field
+  end
+
+  def set_new_field
+    @field = Field.new(fields_params)
+    @field.user = current_user
+    @field.featured_img = @field.images.first.key
+    authorize @field
+  end
 
   def fields_params
     params.require(:field).permit(:name, :size, :description, :location, :price, :user_id, images: [])
