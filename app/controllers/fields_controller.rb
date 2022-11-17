@@ -5,12 +5,12 @@ class FieldsController < ApplicationController
     @fields = policy_scope(Field.search(params))
 
     # Not working properly yet...
-    # @fields = @fields.geocoded.map do |flat|
-    #   {
-    #     lat: flat.latitude,
-    #     lng: flat.longitude
-    #   }
-    # end
+    @markers = @fields.geocoded.map do |field|
+      {
+        lat: field.latitude,
+        lng: field.longitude
+      }
+    end
   end
 
   def show
@@ -42,7 +42,7 @@ class FieldsController < ApplicationController
 
   def update
     @field.update(fields_params)
-    
+
     redirect_to landowner_bookings_path
   end
 
@@ -66,6 +66,6 @@ class FieldsController < ApplicationController
   end
 
   def fields_params
-    params.require(:field).permit(:name, :size, :description, :location, :price, :user_id, images: [])
+    params.require(:field).permit(:name, :size, :rich_description, :location, :price, :user_id, images: [])
   end
 end

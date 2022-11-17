@@ -6,10 +6,13 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "trix/dist/trix";
+
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
 
 body {
   margin: 0;
@@ -21,7 +24,7 @@ body {
 main {
   position: absolute;
   top: 64px; /* Header Height */
-  bottom: 0px; /* Footer Height */
+  bottom: 285px; /* Footer Height */
   width: 100%;
 }
 
