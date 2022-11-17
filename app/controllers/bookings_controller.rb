@@ -28,6 +28,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(bookings_params)
     authorize @booking
+    flash[:alert] = @booking.errors.full_messages.first
     redirect_to bookings_path
   end
 
