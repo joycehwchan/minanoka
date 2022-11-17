@@ -43,6 +43,9 @@
             <p><strong>Total amount: </strong>¥ <%= number_to_currency(booking.full_price, unit: "", precision: 0) %></p>
             <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
             <div class="btn-group-booking flex-sm-column">
+
+              <%= link_to  'See field', field_path(booking.field), class:"btn btn-primary booking-btn px-4" %>
+
               <% if policy(booking).edit? %>
                 <button type="button" class="btn btn-primary booking-btn px-4" data-bs-toggle="modal" data-bs-target="#modal<%= i %>">
                   Change dates
