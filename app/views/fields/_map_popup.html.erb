@@ -1,5 +1,5 @@
 <div class="card container-popup">
-  <%= image_tag field.images.attached? ? cl_image_path(field.featured_img) : 'https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80', class:"card-img-top popup-card-img-top", alt:field.name %>
+  <%= image_tag field.images.first ? cl_image_path(field.images.first.key) : 'https://images.unsplash.com/photo-1573351106568-7c0784fb6456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80', class:"card-img-top popup-card-img-top", alt:field.name %>
   <div class="card-body">
     <h3 class="card-text m-0">
       <%= field.name %> <span class="float-end">¥ <%= number_to_currency(field.price, unit: "", precision: 0) %>/day</span>
