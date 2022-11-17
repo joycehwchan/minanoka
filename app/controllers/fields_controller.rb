@@ -30,6 +30,7 @@ class FieldsController < ApplicationController
     if @field.save
       current_user.landowner = true
       current_user.save
+      flash[:success] = "Field created!"
       redirect_to landowner_bookings_path
     else
       render :new, status: :unprocessable_entity

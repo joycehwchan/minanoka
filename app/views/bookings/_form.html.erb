@@ -1,13 +1,11 @@
 <div data-controller="total">
   <%= simple_form_for [@field, @booking], data: {turbo: false} ,  data: { action: "change->total#amount" } do |f| %>
-    <%= f.input :date_from , data: { target: 'total.startDay' } %>
-    <%= f.input :date_to , data: { target: 'total.endDate' } %>
+    <%= f.input :date_from , data: { target: 'total.startDay' }, html5: true %>
+    <%= f.input :date_to , data: { target: 'total.endDate' }, html5: true %>
     <hr>
     <div class="mb-3">
       <h3 data-total-price-value='<%= @field.price %>' >Price per day: ¥<%= number_to_currency(@field.price, unit: "", precision: 0) %> </h3>
-      <!-- <h3>Total price: ¥<%= number_to_currency(@field.price, unit: "", precision: 0) %> </h3> -->
     </div>
-    <%#= f.input :price_per_day, input_html: { :value => @field.price, readonly: true }  %>
     <div class="d-flex">
       <%= f.submit 'Request Booking', class: "btn btn-primary btn-lg flex-grow-1" %>
     </div>

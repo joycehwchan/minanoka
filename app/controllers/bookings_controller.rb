@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
     set_new_booking
     authorize @booking
     if @booking.save
+      flash[:success] = "Booking created!"
       redirect_to bookings_path
     else
       flash[:alert] = @booking.errors.full_messages.first
@@ -25,6 +26,7 @@ class BookingsController < ApplicationController
     @booking.update(bookings_params)
     authorize @booking
     flash[:alert] = @booking.errors.full_messages.first
+    flash[:success] = "Booking updated!"
     redirect_to bookings_path
   end
 
@@ -41,7 +43,7 @@ class BookingsController < ApplicationController
   end
 
   def bookings_params
-    params.require(:booking).permit(:date_from, :date_to, :user_id, :field_id, :price_per_day, :status)
+    params.require(:booking).permit(:date_from, :date_to)
   end
 
   def set_new_booking
