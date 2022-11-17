@@ -1,7 +1,7 @@
 <div class="card card-booking mb-3">
   <div class="card-body">
     <div class="d-flex align-items-center">
-      <h2 class="card-title pt-3"><%= booking.field.name %></h2>
+      <h2 class="card-title pt-3"><%= link_to booking.field.name, field_path(booking.field), class:"text-secondary" %></h2>
       <div class="badge rounded-pill py-2 px-3 ms-2
                   <%= "text-bg-warning" if booking.status == 'pending' %>
                   <%= "text-bg-success" if booking.status == 'confirmed' %>
@@ -37,15 +37,13 @@
             <p><strong>Total amount: </strong>¥ <%= number_to_currency(booking.full_price, unit: "", precision: 0) %></p>
             <p><strong>Owner: </strong> <%= booking.field.user.name %></p>
             <div class="btn-group-booking flex-sm-column">
-              <%= link_to  'See field', field_path(booking.field), class:"btn btn-primary booking-btn px-4" %>
-              <% if booking.status != 'rejected' %>
-                <%= link_to 'Cancel booking', booking_path(booking), data: { turbo_method: :delete  , turbo_confirm: "Cancel this booking ?" }, class:"btn btn-outline-danger booking-btn"  %>
-              <% end %>
               <% if policy(booking).edit? %>
-                <%#= link_to  'Edit', edit_booking_path(booking), class:"btn btn-primary booking-btn px-4" %>
                 <button type="button" class="btn btn-primary booking-btn px-4" data-bs-toggle="modal" data-bs-target="#modal<%= i %>">
                   Change dates
                 </button>
+              <% end %>
+              <% if booking.status != 'rejected' %>
+                <%= link_to 'Cancel booking', booking_path(booking), data: { turbo_method: :delete  , turbo_confirm: "Cancel this booking ?" }, class:"btn btn-outline-danger booking-btn"  %>
               <% end %>
             </div>
           <% end %>
