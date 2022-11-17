@@ -4,7 +4,7 @@ class Field < ApplicationRecord
   has_many :reviews, dependent: :destroy
   validates :name, presence: true
   validates :size, presence: true
-  validates :description, presence: true
+  validates :rich_description, presence: true
   validates :price, presence: true
   validates :location, presence: true
   has_rich_text :rich_description
