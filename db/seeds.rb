@@ -49,7 +49,7 @@ GEODATA= [
 puts "--- [ Users ] ---"
 
 puts " - Removing all users!"
-User.destroy_all
+# User.destroy_all
 
 25.times do
   is_farmer = [true, false].sample
@@ -89,7 +89,7 @@ end
   field_owner = User.where("landowner = 'true'").sample
   field = Field.new(name: Faker::Movies::StarWars.planet,
                     size: rand(50..1500),
-                    description: Faker::Lorem.paragraph_by_chars,
+                    rich_description: Faker::Lorem.paragraph_by_chars,
                     location: GEODATA.sample,
                     price: rand(1500..5000),
                     user_id: field_owner.id)
@@ -99,7 +99,7 @@ end
                     field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?farmer").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
                     field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?tomatoes").open, filename: "#{rand(0..9999)}-field.png", content_type: "image/png")
   field.featured_img = field.images.first.key
-  field.save
+  field.save!
   field_count
 end
 
@@ -111,7 +111,7 @@ test_farmers = ["apple@farmer.com", "orange@farmer.com", "pear@farmer.com"]
   test_farmers.each do |farmer|
     field = Field.new(name: Faker::Movies::StarWars.planet,
                       size: rand(50..1500),
-                      description: Faker::Lorem.paragraph_by_chars,
+                      rich_description: Faker::Lorem.paragraph_by_chars,
                       location: Faker::Address.full_address,
                       price: rand(1500..5000),
                       user_id: User.find_by(landowner: farmer).id)
