@@ -1,6 +1,9 @@
 .navbar-minanoka {
   justify-content: space-between;
   background: $green;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar-minanoka .navbar-collapse {
