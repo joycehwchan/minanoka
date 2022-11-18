@@ -38,7 +38,6 @@ export default class extends Controller {
       } else {
         new mapboxgl.Marker()
           .setLngLat([marker.lng, marker.lat])
-          .setPopup(popup)
           .addTo(this.map);
       }
     });
