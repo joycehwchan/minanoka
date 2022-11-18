@@ -36,16 +36,16 @@
           <p><strong>Price:</strong> ¥ <%= number_to_currency(@field.price, unit: "", precision: 0) %> per day</p>
         </div>
         <div class="col-12 col-md-6">
-          <p><strong>Animals allowed:</strong> <%= animals = ["cow", "horse", "frog", "dog", "crow", "dragon", "hippo", "ghost", "cat"].sample(rand(1..5)) %></p>
+          <p><strong>Animals allowed:</strong> <%= ["cow", "horse", "frog", "dog", "crow", "dragon", "hippo", "ghost", "cat"].sample(rand(1..5)).to_sentence.pluralize.capitalize %></p>
         </div>
         <div class="col-12 col-md-6">
-          <p><strong>Transport:</strong> Highway nearby</p>
+          <p><strong>Transport:</strong> <%= ["highway", "waterslide", "walk path", "small road", "helicopter pad", "parking"].sample(rand(1..3)).to_sentence.capitalize %> nearby</p>
         </div>
         <div class="col-12 col-md-6">
-          <p><strong>Water access:</strong> Yes</p>
+          <p><strong>Water access:</strong> <%= ["yes", "no"].sample().capitalize %></p>
         </div>
         <div class="col-12 col-md-6">
-          <p><strong>Power access:</strong> Yes</p>
+          <p><strong>Power access:</strong> <%= ["yes", "no"].sample().capitalize %></p>
         </div>
       </div>
       <div class="field-info mt-5">
