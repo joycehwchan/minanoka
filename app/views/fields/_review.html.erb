@@ -1,7 +1,9 @@
-<% if review.rating %>
-<% review.rating.times do %>
-  🥕
-<% end %>
-<% end  %>
-<p><%= review.content %></p>
-<p><%= review.user.name %></p>
+<div class="mb-5">
+  <% if review.rating %>
+  <% review.rating.times do %>
+    🥕
+  <% end %>
+  <% end  %>
+  <p class="review_display"><%= review.content %></p>
+  <p>Published by <%= review.user.name %></p>
+</div>
