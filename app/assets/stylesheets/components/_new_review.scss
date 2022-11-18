@@ -7,40 +7,69 @@
   height: 46px;
   // padding: 0 10px;
 }
-.rate:not(:checked) > input {
-  position:fixed;
-  top:-9999px;
-}
-.rate:not(:checked) > label {
-  float:right;
-  width:1em;
-  overflow:hidden;
-  white-space:nowrap;
-  cursor:pointer;
-  font-size:30px;
-  color:#ccc;
-}
-.rate:not(:checked) > label:before {
-  content: '💩 ';
-}
-.rate > input:checked ~ label:before {
-  // color: #ffc700;
-  content: '🥕 ';
+// .rate:not(:checked) > input {
+//   position:fixed;
+//   top:-9999px;
+// }
+// .rate:not(:checked) > label {
+//   float:right;
+//   width:1em;
+//   overflow:hidden;
+//   white-space:nowrap;
+//   cursor:pointer;
+//   font-size:30px;
+//   color:#ccc;
+// }
+// .rate:not(:checked) > label:before {
+//   content: '💩 ';
+// }
+// .rate > input:checked ~ label:before {
+//   // color: #ffc700;
+//   content: '🥕 ';
 
-}
-.rate:not(:checked) > label:hover:before,
-.rate:not(:checked) > label:hover ~ label:before {
-  // color: #deb217;
-  content: '🥕 ';
-}
-.rate > input:checked + label:hover:before,
-.rate > input:checked + label:hover ~ label:before,
-.rate > input:checked ~ label:hover:before,
-.rate > input:checked ~ label:hover ~ label:before,
-.rate > label:hover ~ input:checked ~ label:before {
-  // color: #c59b08;
-  content: '🥕 ';
+// }
+// .rate:not(:checked) > label:hover:before,
+// .rate:not(:checked) > label:hover ~ label:before {
+//   // color: #deb217;
+//   content: '🥕 ';
+// }
+// .rate > input:checked + label:hover:before,
+// .rate > input:checked + label:hover ~ label:before,
+// .rate > input:checked ~ label:hover:before,
+// .rate > input:checked ~ label:hover ~ label:before,
+// .rate > label:hover ~ input:checked ~ label:before {
+//   // color: #c59b08;
+//   content: '🥕 ';
 
-}
+// }
 
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+.rate {
+  input {
+    visibility: hidden;
+    margin-right: 1em;
+    font-size: 28px;
+    text-shadow: 0.5px 0.5px 3px #e67e23;
+  }
+
+  input:before {
+    cursor: pointer;
+    visibility: visible;
+    font-family: "Font Awesome 5 Free";
+    content: "🥕";
+    font-weight: 900;
+    color: #fd4;
+    transition: color 0.35s;
+  }
+
+  input:hover {
+    transform: scale(1.2) translate(-10%, -10%);
+    content: "💩";
+  }
+
+  input:checked ~ input:before {
+    color: #fff;
+    content: "💩";
+  }
+}

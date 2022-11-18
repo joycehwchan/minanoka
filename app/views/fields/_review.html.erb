@@ -1,7 +1,5 @@
 <% if review.rating %>
-<% review.rating.times do %>
-  🥕
-<% end %>
+  <%= render 'reviews/stars', rating: review.rating %>
 <% end  %>
 <p><%= review.content %></p>
 <p><%= review.user.name %></p>
