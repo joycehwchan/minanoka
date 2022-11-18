@@ -45,11 +45,15 @@
         <p><%= @field.user.name %></p>
       </div>
     </div>
-    <div class="field-info mt-5">
+    <div class="field-info mt-5" data-controller="insert-in-list">
       <h2>Reviews</h2>
-      <% @field.reviews.each do |review| %>
-        <%= render 'fields/review', review: review %>
-      <% end %>
+      <ul>
+        <% if @field.reviews.any? %>
+          <%= render @field.reviews.order(created_at: :desc) %>
+        <% else %>
+          <li>No reviews yet</li>
+        <% end %>
+      </ul>
       <%= render 'fields/new_review', review: Review.new, field: @field %>
     </div>
   </div>
