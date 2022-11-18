@@ -1,7 +1,7 @@
 <div>
   <%= simple_form_for @field do |f| %>
     <%= f.input :name %>
-    <%= f.input :description %>
+    <%= f.rich_text_area :rich_description %>
     <%= f.input :location %>
     <%= f.input :size, input_html: { min: '0' } %>
     <%= f.input :price, input_html: { min: '0' } %>
