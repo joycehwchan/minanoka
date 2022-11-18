@@ -1,5 +1,17 @@
-<% if review.rating %>
-  <%= render 'reviews/stars', rating: review.rating %>
-<% end  %>
-<p><%= review.content %></p>
-<p><small><%= time_ago_in_words(review.created_at) %> ago</small></p>
+<div class="d-flex border-top py-3">
+  <div class="flex-column p-2 me-3 review-user">
+    <div class="profile-avatar text-center">
+      <img class="avatar" style="height: 40px" src="https://source.unsplash.com/640x360?farm-worker">
+    </div>
+    <div class="name text-center">
+      <p><i><%= review.user.name %></i></p>
+    </div>
+  </div>
+  <div>
+    <% if review.rating %>
+      <%= render 'reviews/stars', rating: review.rating %>
+    <% end  %>
+    <p><%= review.content %></p>
+    <p><small>Posted <%= time_ago_in_words(review.created_at) %> ago</small></p>
+  </div>
+</div>
