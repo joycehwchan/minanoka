@@ -28,4 +28,11 @@ class Field < ApplicationRecord
       Field.all
     end
   end
+
+  def avg_rating
+    return unless reviews.any?
+
+    reviews.average(:rating).round(2)
+  end
+
 end

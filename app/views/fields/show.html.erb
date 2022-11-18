@@ -4,7 +4,12 @@
   <div class="my-4">
     <div class="row mb-4">
       <div class="col-12 col-md-6 field-name">
-        <h1 class="m-0"><%= @field.name %></h1>
+        <div class="d-flex align-items-end">
+          <h1 class="m-0"><%= @field.name %></h1>
+          <% if @field.avg_rating %>
+            <h2 class="ms-3">🥕<%= @field.avg_rating %></h2>
+          <% end %>
+        </div>
       </div>
       <div class="col-12 col-md-6">
         <div class="btn-group-field">
