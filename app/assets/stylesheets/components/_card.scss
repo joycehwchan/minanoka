@@ -1,3 +1,5 @@
+$card-text-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+
 .cards-field {
   display: grid;
   flex-grow: 1;
@@ -28,7 +30,7 @@
   // min-height: 320px;
   // min-height: clamp(280px, 320px, 360px);
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
-  text-shadow: 0 0 24px rgba(0, 0, 0, 0.6);
+  text-shadow: $card-text-shadow;
 
   @media (max-width: 1100px) {
     aspect-ratio: 2 / 1;
@@ -44,6 +46,7 @@
 
   .card-title {
     font-size: 1.4rem;
+    text-shadow: $card-text-shadow;
     @media (max-width: 550px) {
       font-size: 1.2rem;
     }
@@ -87,6 +90,7 @@
 
     h3 {
       font-size: 1.4rem;
+      text-shadow: $card-text-shadow;
       @media (max-width: 550px) {
         font-size: 1.2rem;
       }
@@ -97,6 +101,7 @@
     flex: 1 1 auto;
     p {
       font-size: 0.8rem;
+      text-shadow: $card-text-shadow;
     }
 
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
