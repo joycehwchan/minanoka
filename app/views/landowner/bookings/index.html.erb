@@ -12,13 +12,17 @@
       <h3>You have <%= pluralize(current_user.fields.count, 'field') %>.</h3>
     </div>
     <div class="col">
+      <% if current_user.name == "" || current_user.name.nil? %>
+        <%= link_to 'Add a field', edit_user_registration_path, class:"btn btn-secondary float-end" %></div>
+    <% else %>
       <%= link_to 'Add a field', new_field_path, class:"btn btn-secondary float-end" %></div>
-  </div>
-  <div class="row mt-2 gy-3">
-    <% current_user.fields.each do |field| %>
-      <div class="col-12 col-md-6">
-        <%= render 'fields/card', field: field %>
-      </div>
-    <% end %>
-  </div>
+  <% end %>
+</div>
+<div class="row mt-2 gy-3">
+  <% current_user.fields.each do |field| %>
+    <div class="col-12 col-md-6">
+      <%= render 'fields/card', field: field %>
+    </div>
+  <% end %>
+</div>
 </div>
