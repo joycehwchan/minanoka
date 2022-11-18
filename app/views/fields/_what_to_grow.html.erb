@@ -1,0 +1,11 @@
+<div class="row g-3">
+  <% vegetables = ["carrot", "tree", "lemon", "cannabis", "cookie"].sample(rand(1..5)) %>
+  <% vegetables.each do |vegetable| %>
+    <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+      <div class="crop-icon">
+        <i class="fa-solid fa-<%= vegetable %>"></i>
+      </div>
+      <%= vegetable.capitalize %>
+    </div>
+  <% end %>
+</div>
