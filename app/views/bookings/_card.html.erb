@@ -25,13 +25,13 @@
             <p><strong>Total amount: </strong>¥ <%= number_to_currency(booking.full_price, unit: "", precision: 0) %></p>
             <div class="btn-group-booking-landowner">
               <% if booking.status == 'pending' %>
-                <div class="">
+                <div>
                   <%= simple_form_for booking, url: landowner_booking_path(booking) do |f| %>
                     <%= f.input :status, as: :hidden, input_html: { value: 'confirmed'} %>
                     <%= f.submit 'Confirm booking', class: 'btn btn-primary booking-btn' %>
                   </div>
                 <% end %>
-                <div class="">
+                <div>
                   <%= simple_form_for booking, url: landowner_booking_path(booking) do |f| %>
                     <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
                     <%= f.submit 'Reject booking', class: 'btn btn-outline-danger booking-btn' %>
