@@ -41,7 +41,7 @@
           <p><strong>Price:</strong> ¥ <%= number_to_currency(@field.price, unit: "", precision: 0) %> per day</p>
         </div>
         <div class="col-12 col-md-6">
-          <p><strong>Animals allowed:</strong> <%= ["cow", "horse", "frog", "dog", "crow", "dragon", "hippo", "ghost", "cat"].sample(rand(1..5)).to_sentence.pluralize.capitalize %></p>
+          <p><strong>Animals allowed:</strong> <%= ["cow", "horse", "frog", "dog", "crow", "dragon", "hippo", "ghost", "worm", "spider", "cat", "fish", "cat", "otter", "bug"].sample(rand(1..5)).to_sentence.pluralize.capitalize %></p>
         </div>
         <div class="col-12 col-md-6">
           <p><strong>Transport:</strong> <%= ["highway", "waterslide", "walk path", "small road", "helicopter pad", "parking"].sample(rand(1..3)).to_sentence.capitalize %> nearby</p>
