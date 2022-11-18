@@ -89,7 +89,7 @@
         </div>
       </div>
     </div>
-    <div class="field-info mt-5">
+    <div class="field-info mt-5"   data-controller="insert-in-list" >
       <h2>Reviews</h2>
       <%= render 'reviews/form', review: Review.new, field: @field %>
       <ul   data-insert-in-list-target="itemsList" >

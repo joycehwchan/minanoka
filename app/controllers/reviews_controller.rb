@@ -6,13 +6,13 @@ class ReviewsController < ApplicationController
     authorize @review
     respond_to do |format|
       if @review.save
-        flash[:success] = "Review Posted!"
+        # flash[:success] = "Review Posted!"
         format.html { redirect_to field_path(@field) }
         format.json
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json
-        flash[:alert] = "Ops! Something went wrong..."
+        # flash[:alert] = "Ops! Something went wrong..."
       end
     end
     # redirect_to field_path(@field)
