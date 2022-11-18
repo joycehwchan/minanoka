@@ -28,43 +28,149 @@
     <p class="field-description trix-content"><%= @field.rich_description %></p>
     <div class="field-info mt-5">
       <h2>About this field</h2>
-      <p><strong>Size:</strong> <%= @field.size %> m2</p>
-      <p><strong>Price:</strong> ¥ <%= number_to_currency(@field.price, unit: "", precision: 0) %> per day</p>
-    </div>
-    <div class="field-info mt-5">
-      <div id="map"
+      <div class="row gy-2">
+        <div class="col-12 col-md-6">
+          <p><strong>Size:</strong> <%= @field.size %>㎡</p>
+        </div>
+        <div class="col-12 col-md-6">
+          <p><strong>Price:</strong> ¥ <%= number_to_currency(@field.price, unit: "", precision: 0) %> per day</p>
+        </div>
+        <div class="col-12 col-md-6">
+          <p><strong>Animals allowed:</strong> Dogs, horses, ponies</p>
+        </div>
+        <div class="col-12 col-md-6">
+          <p><strong>Ranking:</strong> #12 out of <%= pluralize(Field.count, 'field') %></p>
+        </div>
+        <div class="col-12 col-md-6">
+          <p><strong>Water access:</strong> Yes</p>
+        </div>
+        <div class="col-12 col-md-6">
+          <p><strong>Power access:</strong> Yes</p>
+        </div>
+        <div class="col-12 col-md-6">
+          <p><strong>Transport:</strong> Highway nearby</p>
+        </div>
+      </div>
+      <div class="field-info mt-5">
+        <h2>What you can grow</h2>
+        <div class="row g-3">
+          <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+            <div class="crop-icon">
+              <i class="fa-solid fa-carrot"></i>
+            </div>
+            Carrot
+          </div>
+          <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+            <div class="crop-icon">
+              <i class="fa-solid fa-apple-whole"></i>
+            </div>
+            Apple
+          </div>
+          <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+            <div class="crop-icon">
+              <i class="fa-solid fa-lemon"></i>
+            </div>
+            Lemon
+          </div>
+          <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+            <div class="crop-icon">
+              <i class="fa-solid fa-pepper-hot"></i>
+            </div>
+            Pepper
+          </div>
+          <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+            <div class="crop-icon">
+              <i class="fa-solid fa-wheat-awn"></i>
+            </div>
+            Wheat
+          </div>
+        </div>
+      </div>
+      <div class="field-info mt-5">
+        <h2>Aniamls nearby</h2>
+        <div class="row g-3">
+          <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+            <div class="crop-icon">
+              <i class="fa-solid fa-cow"></i>
+            </div>
+            Cows
+          </div>
+          <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+            <div class="crop-icon">
+              <i class="fa-solid fa-horse"></i>
+            </div>
+            Horeses
+          </div>
+          <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+            <div class="crop-icon">
+              <i class="fa-solid fa-frog"></i>
+            </div>
+            Frogs
+          </div>
+          <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+            <div class="crop-icon">
+              <i class="fa-solid fa-dog"></i>
+            </div>
+            Dogs
+          </div>
+          <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+            <div class="crop-icon">
+              <i class="fa-solid fa-crow"></i>
+            </div>
+            Crows
+          </div>
+          <div class="col-6 col-md-6 col-lg-4 d-flex align-items-center">
+            <div class="crop-icon">
+              <i class="fa-solid fa-dragon"></i>
+            </div>
+            Dragons
+          </div>
+        </div>
+      </div>
+      <div class="field-info mt-5">
+        <h2>Available activities</h2>
+        <p>
+          If you haven't already heard, our farm is a new and exciting farming experience in our town. We have a wide variety of crops and vegetables that are ready for harvest right now, so if you feel like getting your hands dirty, there's no time like the present! We also offer plenty of space for people who would rather not get their hands dirty at all—we've got plenty of activities available that will keep you entertained while our farmers do the hard work.
+        </p>
+        <p>
+          If you're looking for something more educational or historical, we have those options as well! We know how important it is to learn about where food comes from these days, and we want everyone who visits our farm to be able to get value out of their experience here.
+        </p>
+      </div>
+      <div class="field-info mt-5">
+        <h2>Map</h2>
+        <div id="map"
             data-controller="map"
             data-map-markers-value="<%= @marker.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
-    <div class="field-info mt-5">
-      <h2>Field Owner</h2>
-      <div class="d-flex align-items-end gap-3">
-        <img class="avatar" style="height: 40px" src="https://source.unsplash.com/640x360?farm-worker">
-        <p><%= @field.user.name %></p>
-      </div>
-    </div>
-    <div class="field-info mt-5">
-      <h2>Reviews</h2>
-      <% @field.reviews.each do |review| %>
-        <%= render 'fields/review', review: review %>
-      <% end %>
-      <%= render 'fields/new_review', review: Review.new, field: @field %>
-    </div>
-  </div>
-  <!-- Booking form modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Booking request</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%= render 'bookings/form', field: @field, booking: @booking %>
         </div>
       </div>
+      <div class="field-info mt-5">
+        <h2>Field Owner</h2>
+        <div class="d-flex align-items-end gap-3">
+          <img class="avatar" style="height: 40px" src="https://source.unsplash.com/640x360?farm-worker">
+          <p><%= @field.user.name %></p>
+        </div>
+      </div>
+      <div class="field-info mt-5">
+        <h2>Reviews</h2>
+        <% @field.reviews.each do |review| %>
+          <%= render 'fields/review', review: review %>
+        <% end %>
+        <%= render 'fields/new_review', review: Review.new, field: @field %>
+      </div>
+    </div>
+    <!-- Booking form modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Booking request</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render 'bookings/form', field: @field, booking: @booking %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
