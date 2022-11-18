@@ -7,7 +7,6 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    Booking.where("user_id = ? AND field_id = ? AND date_to <= ?, #{user}, #{record.field}, #{Time.now}") ? true : false
   end
-
 end

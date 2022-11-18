@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   namespace :landowner do
     resources :bookings, only: [:index, :update]
+    resources :id, only: :show
   end
   resources :bookings, only: [:index, :update,:destroy,:edit]
 end
