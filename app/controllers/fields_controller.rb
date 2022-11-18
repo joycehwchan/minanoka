@@ -72,6 +72,6 @@ class FieldsController < ApplicationController
   end
 
   def fields_params
-    params.require(:field).permit(:name, :size, :rich_description, :location, :price, :user_id, images: [])
+    params.require(:field).permit(:name, :size, :rich_description, :location, :price, images: [])
   end
 end
