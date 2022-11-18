@@ -120,10 +120,10 @@ test_farmers = ["apple@farmer.com", "orange@farmer.com", "pear@farmer.com"]
 2.times do
   test_farmers.each do |farmer|
     field = Field.new(name: Faker::Movies::StarWars.planet,
-                      size: rand(50..1500),
+                      size: rand(50..25000),
                       rich_description: Faker::Lorem.paragraph_by_chars,
                       location: Faker::Address.full_address,
-                      price: rand(1500..5000),
+                      price: rand(1500..12500),
                       user_id: User.find_by(landowner: farmer).id)
     field.images.attach(io: URI.parse("https://source.unsplash.com/640x360?field").open,
                         filename: "#{rand(0..9999)}-field.png",
