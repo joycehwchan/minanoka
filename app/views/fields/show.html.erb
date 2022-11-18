@@ -36,19 +36,16 @@
           <p><strong>Price:</strong> ¥ <%= number_to_currency(@field.price, unit: "", precision: 0) %> per day</p>
         </div>
         <div class="col-12 col-md-6">
-          <p><strong>Animals allowed:</strong> Dogs, horses, ponies</p>
+          <p><strong>Animals allowed:</strong> <%= animals = ["cow", "horse", "frog", "dog", "crow", "dragon", "hippo", "ghost", "cat"].sample(rand(1..5)) %></p>
         </div>
         <div class="col-12 col-md-6">
-          <p><strong>Ranking:</strong> #12 out of <%= pluralize(Field.count, 'field') %></p>
+          <p><strong>Transport:</strong> Highway nearby</p>
         </div>
         <div class="col-12 col-md-6">
           <p><strong>Water access:</strong> Yes</p>
         </div>
         <div class="col-12 col-md-6">
           <p><strong>Power access:</strong> Yes</p>
-        </div>
-        <div class="col-12 col-md-6">
-          <p><strong>Transport:</strong> Highway nearby</p>
         </div>
       </div>
       <div class="field-info mt-5">
