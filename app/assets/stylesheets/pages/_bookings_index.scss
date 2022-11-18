@@ -29,6 +29,16 @@
   }
 }
 
+.btn-group-booking-landowner {
+  display: flex;
+  gap: 8px;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
 .booking-btn {
   margin-bottom: 8px;
 
