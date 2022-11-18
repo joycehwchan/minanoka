@@ -15,7 +15,7 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
-      <%= f.input :landowner, as: :boolean, checked_value: true, unchecked_value: false ,
+      <%= f.input :landowner, as: :boolean, checked_value: true, unchecked_value: false , label: false,
       hint: 'Check this box if you would like to rent out fields' %>
     </div>
     <div class="form-actions">
