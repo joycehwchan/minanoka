@@ -1,0 +1,19 @@
+<div class="my-5">
+  <div>
+    <%= simple_form_for [field, review] , html: {
+  data: {
+    action: "submit->insert-in-list#submit"
+  }
+} do |f| %>
+      <div class="rate">
+        <% 5.times do |i| %>
+          <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+        <% end %>
+      </div>
+      <%= f.input :content, label: false, :placeholder => "My awesome review..." %>
+      <div>
+        <%= f.button :submit, 'Add a Review', class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>

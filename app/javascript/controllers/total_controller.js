@@ -5,11 +5,11 @@ export default class extends Controller {
  static targets = [ "price","totalPrice", "startDay", "endDay", "days"]
 
   connect() {
-    console.log(this.totalPriceTarget.value)
-    console.log(this.startDayTarget)
-    console.log(this.endDayTarget)
-    console.log(this.priceTarget.innerText)
-    console.log(this.daysTarget.innerText)
+    // console.log(this.totalPriceTarget.value)
+    // console.log(this.startDayTarget)
+    // console.log(this.endDayTarget)
+    // console.log(this.priceTarget.innerText)
+    // console.log(this.daysTarget.innerText)
     
   }
 

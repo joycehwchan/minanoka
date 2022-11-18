@@ -4,12 +4,18 @@ class ReviewsController < ApplicationController
   def create
     set_new_review
     authorize @review
-    if @review.save
-      flash[:success] = "Review Posted!"
-    else
-      flash[:alert] = "Ops! Something went wrong..."
+    respond_to do |format|
+      if @review.save
+        flash[:success] = "Review Posted!"
+        format.html { redirect_to field_path(@field) }
+        format.json
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json
+        flash[:alert] = "Ops! Something went wrong..."
+      end
     end
-    redirect_to field_path(@field)
+    # redirect_to field_path(@field)
   end
 
   private

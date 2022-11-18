@@ -1,0 +1,5 @@
+<% if review.rating %>
+  <%= render 'reviews/stars', rating: review.rating %>
+<% end  %>
+<p><%= review.content %></p>
+<p><small><%= time_ago_in_words(review.created_at) %> ago</small></p>
