@@ -8,11 +8,11 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
       <%= f.input :name,
-                  hint: "leave it blank if you don't want to change it",
+                  hint: "leave this blank if you don't need to change it",
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password,
-                  hint: "leave it blank if you don't want to change it",
+                  hint: "leave this blank if you don't need to change it",
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
