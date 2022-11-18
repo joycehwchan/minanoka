@@ -28,12 +28,18 @@ export default class extends Controller {
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.popup_html);
-      const markerElement = document.createElement("div");
-      markerElement.innerHTML = marker.marker_html;
-      new mapboxgl.Marker(markerElement)
-        .setLngLat([marker.lng, marker.lat])
-        .setPopup(popup)
-        .addTo(this.map);
+      if (marker.marker_html) {
+        const markerElement = document.createElement("div");
+        markerElement.innerHTML = marker.marker_html;
+        new mapboxgl.Marker(markerElement)
+          .setLngLat([marker.lng, marker.lat])
+          .setPopup(popup)
+          .addTo(this.map);
+      } else {
+        new mapboxgl.Marker()
+          .setLngLat([marker.lng, marker.lat])
+          .addTo(this.map);
+      }
     });
   }
 
