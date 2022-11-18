@@ -1,7 +1,6 @@
 <div class="my-5">
   <div>
     <%= simple_form_for [field, review] do |f| %>
-      <%= f.input :content %>
         <div class="rate">
           <input type="radio" id="star5" name="review[rating]" value="5" />
           <label for="star5" title="text">5 stars</label>
@@ -14,6 +13,7 @@
           <input type="radio" id="star1" name="review[rating]" value="1" />
           <label for="star1" title="text">1 star</label>
         </div>
+      <%= f.input :content, label: false, :placeholder => "My awesome review..." %>
       <div>
         <%= f.button :submit, 'Add a Review', class: "btn btn-success" %>
       </div>
