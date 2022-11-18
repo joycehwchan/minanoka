@@ -1,5 +1,5 @@
 <div class="container my-5 booking-container">
-  <h1>Welcome back, <%= current_user.name %>!</h1>
+  <h1>Welcome back<%= ", #{current_user.name}" if current_user.name%> !</h1>
   <h3>You have <%= pluralize(@bookings.count, 'request') %>.</h3>
   <div class="cards-booking mt-4">
     <% @bookings.each do |booking| %>
@@ -13,10 +13,11 @@
     </div>
     <div class="col">
       <% if current_user.name == "" || current_user.name.nil? %>
-        <%= link_to 'Add a field', edit_user_registration_path, class:"btn btn-secondary float-end" %></div>
+        <%= link_to 'Add a field', edit_user_registration_path, class:"btn btn-secondary float-end" %>
     <% else %>
-      <%= link_to 'Add a field', new_field_path, class:"btn btn-secondary float-end" %></div>
+      <%= link_to 'Add a field', new_field_path, class:"btn btn-secondary float-end" %>
   <% end %>
+  </div>
 </div>
 <div class="row mt-2 gy-3">
   <% current_user.fields.each do |field| %>
