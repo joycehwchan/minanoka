@@ -22,8 +22,8 @@ class FieldsController < ApplicationController
       [{
         lat: @field.latitude,
         lng: @field.longitude,
-        popup_html: render_to_string(partial: "fields/map_popup", locals: { field: @field }),
-        marker_html: render_to_string(partial: 'fields/map_marker', locals: { field: @field })
+        popup_html: render_to_string(partial: "fields/map_popup", locals: { field: @field })
+        # marker_html: render_to_string(partial: 'fields/map_marker', locals: { field: @field })
       }]
   end
 
