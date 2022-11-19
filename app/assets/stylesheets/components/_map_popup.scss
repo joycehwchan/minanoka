@@ -34,22 +34,22 @@
 }
 
 .marker {
-  background-color: $green;
+  background-color: $light-gray;
   border: solid 1px $light-gray;
   border-radius: 100px;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
   transition: 200ms;
   p {
-    color: white;
+    color: $green;
     margin: 0;
     padding: 0 1em;
   }
 
   &:hover {
     transform: scale(1.1);
-    background-color: $light-gray;
+    background-color: $green;
     p {
-      color: $green;
+      color: $light-gray;
     }
   }
 }
