@@ -1,7 +1,14 @@
-# Minoka
+# MinaNoka
+
+A market place for farming fields build with Ruby on Rails.
+
+<div align="center">
+<img width="640" alt="MinaNoka01" src="https://user-images.githubusercontent.com/109743083/205652232-4f0849ea-2e06-439e-816b-da0ffdad27b5.png">
+<img width="640" alt="MinaNoka02" src="https://user-images.githubusercontent.com/109743083/205652316-7d2d4d03-de16-4fa3-9653-a298cfc90afe.png">
+</div>
 
 <br>
-👉 App home:
+👉 App home: http://www.minanoka.com/
 <br>
 
 ## Getting Started
