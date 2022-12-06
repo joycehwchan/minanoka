@@ -57,7 +57,7 @@ rails s
 ## Team Members
 - [Joyce Chan](https://www.linkedin.com/in/joycehwchan/)
 - [Fredrik Kawahara Faeger](https://www.linkedin.com/in/fredfaeger/)
-- [Christopher Crespo](https://www.linkedin.com/in/christopher-crespo-374533240/)
+- [Christopher Crespo](https://www.linkedin.com/in/christopher-ikaika-crespo/)
 - [Hafid Qarchi](https://www.linkedin.com/in/hafid-qa/)
 
 ## Contributing
@@ -65,4 +65,3 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 This project is licensed under the MIT License
-
